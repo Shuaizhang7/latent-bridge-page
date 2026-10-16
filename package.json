@@ -1,0 +1,15 @@
+{
+  "name": "latent-bridge-page",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static Latent Bridge research project page",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node tools/serve.cjs",
+    "check": "node tools/verify.cjs",
+    "manifest": "node tools/verify.cjs --write-manifest",
+    "test:http": "node tests/http.cjs",
+    "test:browser": "node tests/comparison.cjs && node tests/applications.cjs"
+  },
+  "devDependencies": { "playwright": "1.62.1" }
+}

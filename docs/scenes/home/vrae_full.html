@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Omega35 full-density point cloud - re10k_case_090</title>
+<style>
+:root{--ink:#e8edf0;--muted:#91a0a7;--panel:#101719;--accent:#ffb544;--line:#263438;--bg:#071012}
+*{box-sizing:border-box}html,body{height:100%;margin:0;background:radial-gradient(circle at 70% 12%,#193235 0,#0b1719 36%,#050b0c 100%);color:var(--ink);font:14px/1.35 "Avenir Next Condensed","DIN Condensed",sans-serif}
+body{display:grid;place-items:center;padding:16px}.app{width:min(1280px,100%);height:min(900px,calc(100vh - 32px));display:grid;grid-template-rows:auto 1fr auto;background:rgba(8,15,17,.9);border:1px solid #304144;border-radius:18px;overflow:hidden;box-shadow:0 28px 90px #000a}
+header{display:flex;justify-content:space-between;align-items:end;padding:14px 18px;border-bottom:1px solid var(--line)}h1{font-size:21px;letter-spacing:.04em;margin:0}header span{color:var(--accent);font-family:ui-monospace,monospace}.stage{position:relative;min-height:0}canvas{width:100%;height:100%;display:block;cursor:grab;touch-action:none}canvas:active{cursor:grabbing}.badge{position:absolute;top:12px;left:12px;padding:8px 10px;border:1px solid #ffffff24;border-radius:9px;background:#071012cc;backdrop-filter:blur(8px);font-family:ui-monospace,monospace}.badge b{color:var(--accent)}
+.controls{display:grid;grid-template-columns:auto minmax(180px,1fr) auto minmax(130px,.35fr) auto auto;gap:12px;align-items:center;padding:13px 16px;border-top:1px solid var(--line);background:var(--panel)}button,.downloadAction{border:1px solid #3b4c50;background:#172326;color:var(--ink);border-radius:8px;padding:8px 12px;font:inherit;cursor:pointer;text-decoration:none;white-space:nowrap}button:hover,.downloadAction:hover{border-color:var(--accent)}button:disabled{cursor:not-allowed;opacity:.38}.recordControls{display:flex;gap:7px;align-items:center}.recordStart{border-color:#8d4d46}.recordStart:hover{border-color:#ff826f}.downloadAction{color:var(--accent)}label{display:flex;gap:8px;align-items:center;color:var(--muted)}input[type=range]{width:100%;accent-color:var(--accent)}.frame{min-width:64px;color:var(--ink);font-family:ui-monospace,monospace}.help{position:absolute;right:12px;top:12px;text-align:right;color:#b7c2c6;background:#071012aa;border-radius:8px;padding:7px 9px}.recordOverlay{position:absolute;right:12px;bottom:12px;display:flex;align-items:center;gap:8px;padding:7px 10px;border:1px solid #ff826f66;border-radius:999px;background:#1a090bcc;color:#ffb1a6;font-family:ui-monospace,monospace;backdrop-filter:blur(8px)}.recordOverlay i{width:9px;height:9px;border-radius:50%;background:#ff5a48;box-shadow:0 0 13px #ff5a48;animation:pulse 1.1s ease-in-out infinite}.recordOverlay[hidden],.downloadAction[hidden]{display:none}@keyframes pulse{50%{opacity:.35}}.error{color:#ff826f}
+@media(max-width:900px){body{padding:0}.app{height:100vh;border:0;border-radius:0}.controls{grid-template-columns:auto 1fr auto}.sizeControl,.recordControls{grid-column:1/-1}.recordControls{justify-content:flex-end}.help{display:none}}
+header{padding:8px}h1{font-size:15px}header span{display:none}.badge{font-size:11px}.controls{padding:8px;gap:6px}button{padding:6px 8px}</style>
+</head>
+<body><main class="app"><header><div><h1>VRAE DiT61K EMA + Adapter50K / re10k_case_090</h1><small style="color:var(--muted)">Full scene; all valid pixels</small></div><span>FULL DENSITY</span></header><section class="stage"><canvas id="gl"></canvas><div class="badge"><b id="status">准备数据</b><br><span id="count">全部有效点/帧 · 无下采样</span><br><span style="color:#ffb544">橙色：相机轨迹 · 红色：当前视锥</span></div><div class="help">左键旋转 · 滚轮缩放<br>右键平移 · 双击重置</div><div class="recordOverlay" id="recordOverlay" hidden><i></i><span id="recordTime">REC 00:00</span></div></section><section class="controls"><button id="play">播放</button><label>帧 <input id="frame" type="range" min="1" max="49" value="1"></label><span class="frame"><b id="frameValue">1</b> / 49</span><label class="sizeControl">点大小 <input id="size" type="range" min="0.45" max="2.8" step="0.05" value="1.15"></label><button id="reset">重置视角</button><div class="recordControls"><button id="recordStart" class="recordStart" title="录制期间仍可播放、旋转、缩放和平移">开始录制</button><button id="recordStop" disabled>结束录制</button><a id="recordDownload" class="downloadAction" hidden>下载视频</a></div></section></main>
+<script>
+(async()=>{
+const response=await fetch('vrae_full.json.gz');if(!response.ok)throw Error('Geometry fetch failed');const data=await new Response(response.body.pipeThrough(new DecompressionStream('gzip'))).json();
+
+const canvas=document.getElementById('gl'),status=document.getElementById('status'),frameSlider=document.getElementById('frame'),frameValue=document.getElementById('frameValue'),playBtn=document.getElementById('play'),sizeSlider=document.getElementById('size'),recordStartBtn=document.getElementById('recordStart'),recordStopBtn=document.getElementById('recordStop'),recordDownload=document.getElementById('recordDownload'),recordOverlay=document.getElementById('recordOverlay'),recordTime=document.getElementById('recordTime');
+const gl=canvas.getContext('webgl2',{antialias:true,preserveDrawingBuffer:false});if(!gl){status.innerHTML='<span class="error">需要 WebGL2</span>';throw new Error('WebGL2 unavailable')}
+const vs=`#version 300 es
+precision highp float;layout(location=0)in vec2 aGrid;layout(location=1)in float aDepth;uniform mat4 uMVP;uniform mat4 uC2W;uniform vec4 uK;uniform float uPointSize;out vec2 vUv;void main(){vec4 camera=vec4((aGrid.x-uK.z)/uK.x*aDepth,(aGrid.y-uK.w)/uK.y*aDepth,aDepth,1.0);vec4 world=uC2W*camera;world.y=-world.y;world.z=-world.z;gl_Position=uMVP*world;gl_PointSize=uPointSize;vUv=vec2(aGrid.x/559.0,1.0-aGrid.y/559.0);}`;
+const fs=`#version 300 es
+precision highp float;in vec2 vUv;uniform sampler2D uVideo;out vec4 color;void main(){vec2 p=gl_PointCoord-.5;if(dot(p,p)>.25)discard;color=texture(uVideo,vUv);}`;
+const lineVs=`#version 300 es
+precision highp float;layout(location=0)in vec3 aPos;uniform mat4 uMVP;uniform float uSize;void main(){vec3 p=aPos;p.y=-p.y;p.z=-p.z;gl_Position=uMVP*vec4(p,1);gl_PointSize=uSize;}`;
+const lineFs=`#version 300 es
+precision highp float;uniform vec4 uColor;out vec4 color;void main(){color=uColor;}`;
+function shader(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(s));return s}function program(v,f){const p=gl.createProgram();gl.attachShader(p,shader(gl.VERTEX_SHADER,v));gl.attachShader(p,shader(gl.FRAGMENT_SHADER,f));gl.linkProgram(p);if(!gl.getProgramParameter(p,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(p));return p}const pointP=program(vs,fs),lineP=program(lineVs,lineFs);
+function decodeB64(s){const b=atob(s),a=new Uint8Array(b.length);for(let i=0;i<b.length;i++)a[i]=b.charCodeAt(i);return a}function f16(h){const s=(h&0x8000)?-1:1,e=(h>>10)&31,m=h&1023;if(e===0)return s*Math.pow(2,-14)*(m/1024);if(e===31)return m?NaN:s*Infinity;return s*Math.pow(2,e-15)*(1+m/1024)}
+const codes=decodeB64(data.depthCodes),validMask=decodeB64(data.validMask),rangeBytes=decodeB64(data.tileRangesF16),rangeView=new DataView(rangeBytes.buffer);const ranges=new Float32Array(rangeBytes.length/2);for(let i=0;i<ranges.length;i++)ranges[i]=f16(rangeView.getUint16(i*2,true));
+const grid=new Float32Array(data.pointsPerFrame*2);for(let y=0,i=0;y<data.height;y++)for(let x=0;x<data.width;x++,i+=2){grid[i]=x;grid[i+1]=y}const depths=new Float32Array(data.pointsPerFrame);const gridBuf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,gridBuf);gl.bufferData(gl.ARRAY_BUFFER,grid,gl.STATIC_DRAW);const depthBuf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,depthBuf);gl.bufferData(gl.ARRAY_BUFFER,depths.byteLength,gl.DYNAMIC_DRAW);const cameraBuf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,cameraBuf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(data.cameras.flat()),gl.STATIC_DRAW);
+// Screen-space triangle strokes avoid platform-dependent WebGL lineWidth limits.
+const strokeVs=`#version 300 es
+precision highp float;layout(location=0)in vec4 aClip;void main(){gl_Position=aClip;}`;
+const strokeP=program(strokeVs,lineFs),strokeBuf=gl.createBuffer();
+const trajectorySegments=new Float32Array((data.frameCount-1)*6);
+for(let f=1;f<data.frameCount;f++)trajectorySegments.set([...data.cameras[f-1],...data.cameras[f]],(f-1)*6);
+function strokeTriangles(vertices,M,viewportWidth,viewportHeight,widthPixels){
+  const out=[],clip=i=>{
+    const x=vertices[i],y=-vertices[i+1],z=-vertices[i+2];
+    return [0,1,2,3].map(r=>M[r]*x+M[4+r]*y+M[8+r]*z+M[12+r]);
+  };
+  for(let i=0;i<vertices.length;i+=6){
+    let a=clip(i),b=clip(i+3);
+    // Clip the segment before perspective division (near plane and positive w).
+    let visible=true;
+    for(const plane of [p=>p[2]+p[3],p=>p[3]-1e-5]){
+      const fa=plane(a),fb=plane(b);
+      if(fa<0&&fb<0){visible=false;break;}
+      if(fa<0||fb<0){const t=fa/(fa-fb),p=a.map((v,k)=>v+t*(b[k]-v));if(fa<0)a=p;else b=p;}
+    }
+    if(!visible)continue;
+    const dx=(b[0]/b[3]-a[0]/a[3])*viewportWidth,dy=(b[1]/b[3]-a[1]/a[3])*viewportHeight;
+    const length=Math.hypot(dx,dy);if(length<1e-6)continue;
+    const ox=-dy/length*widthPixels/viewportWidth,oy=dx/length*widthPixels/viewportHeight;
+    const offset=(p,s)=>[p[0]+s*ox*p[3],p[1]+s*oy*p[3],p[2],p[3]];
+    const ap=offset(a,1),am=offset(a,-1),bp=offset(b,1),bm=offset(b,-1);
+    out.push(...ap,...am,...bp,...bp,...am,...bm);
+  }
+  return new Float32Array(out);
+}
+function drawThickLines(vertices,color,widthCss=2.5){
+  const mesh=strokeTriangles(vertices,mvp(),canvas.width,canvas.height,widthCss*canvas.width/canvas.clientWidth);
+  gl.useProgram(strokeP);
+  gl.bindBuffer(gl.ARRAY_BUFFER,strokeBuf);gl.bufferData(gl.ARRAY_BUFFER,mesh,gl.DYNAMIC_DRAW);
+  gl.enableVertexAttribArray(0);gl.vertexAttribPointer(0,4,gl.FLOAT,false,0,0);
+  gl.uniform4fv(gl.getUniformLocation(strokeP,'uColor'),color);
+  gl.drawArrays(gl.TRIANGLES,0,mesh.length/4);
+}
+
+// Keep every frame's trajectory sample visible above the connecting stroke.
+const markerFs=`#version 300 es
+precision highp float;uniform vec4 uColor;out vec4 color;
+void main(){float r=length(gl_PointCoord-.5);if(r>.5)discard;color=r>.34?vec4(.65,.29,.025,1):uColor;}`;
+const markerP=program(lineVs,markerFs);
+function drawTrajectoryMarkers(){
+  gl.useProgram(markerP);
+  gl.uniformMatrix4fv(gl.getUniformLocation(markerP,'uMVP'),false,mvp());
+  gl.uniform1f(gl.getUniformLocation(markerP,'uSize'),6*canvas.width/canvas.clientWidth);
+  gl.uniform4f(gl.getUniformLocation(markerP,'uColor'),1,.76,.28,1);
+  gl.bindBuffer(gl.ARRAY_BUFFER,cameraBuf);
+  gl.enableVertexAttribArray(0);gl.vertexAttribPointer(0,3,gl.FLOAT,false,0,0);
+  gl.drawArrays(gl.POINTS,0,data.frameCount);
+}
+
+// Camera marker: OpenCV +Z forward, image corners lifted through K and c2w.
+// Keep coordinates in source world space; lineVs applies the display Y flip once.
+const frustumBuf=gl.createBuffer();
+let frustumLength=.0375;
+function cameraFrustumVertices(f,length){
+  const k=data.intrinsics[f],m=data.c2w[f];
+  const world=(x,y,z)=>[m[0]*x+m[1]*y+m[2]*z+m[3],m[4]*x+m[5]*y+m[6]*z+m[7],m[8]*x+m[9]*y+m[10]*z+m[11]];
+  const lift=(u,v)=>world((u-k[2])/k[0]*length,(v-k[5])/k[4]*length,length);
+  const origin=world(0,0,0),corners=[[0,0],[data.width-1,0],[data.width-1,data.height-1],[0,data.height-1]].map(([u,v])=>lift(u,v));
+  const vertices=[],edge=(a,b)=>vertices.push(...a,...b);
+  for(let i=0;i<4;i++){edge(origin,corners[i]);edge(corners[i],corners[(i+1)%4]);}
+  // A small roof indicates the image's top edge; center ray indicates forward.
+  const roof=lift((data.width-1)/2,-data.height*.18);
+  edge(corners[0],roof);edge(roof,corners[1]);
+  edge(origin,world(0,0,length*1.3));
+  return new Float32Array(vertices);
+}
+function drawCameraFrustum(){
+  drawThickLines(cameraFrustumVertices(current,frustumLength),[1,.12,.12,1],2.5);
+}
+
+const video=document.createElement('video');video.muted=true;video.playsInline=true;video.preload='auto';video.src="vrae.mp4";const texture=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,texture);gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+let yaw=.12,pitch=.03,distance=1.2,target=[0,0,.8],current=0,playing=false,timer=0,drag=null,requestId=0;function reset(){reconstruct(0);const sorted=Float32Array.from(depths).filter(Number.isFinite).sort(),focus=Math.max(.2,sorted[Math.floor(sorted.length/2)]);yaw=.12;pitch=.03;distance=focus*1.25;target=[0,0,-focus];frustumLength=focus*.045;reconstruct(current);draw()}document.getElementById('reset').onclick=reset;canvas.ondblclick=reset;canvas.oncontextmenu=e=>e.preventDefault();canvas.onpointerdown=e=>{drag=[e.clientX,e.clientY,e.button];canvas.setPointerCapture(e.pointerId)};canvas.onpointermove=e=>{if(!drag)return;const dx=e.clientX-drag[0],dy=e.clientY-drag[1];drag[0]=e.clientX;drag[1]=e.clientY;if(drag[2]===2){target[0]-=dx*distance*.0015;target[1]+=dy*distance*.0015}else{yaw-=dx*.006;pitch=Math.max(-1.45,Math.min(1.45,pitch-dy*.006))}draw()};canvas.onpointerup=()=>drag=null;canvas.onwheel=e=>{e.preventDefault();distance*=Math.exp(e.deltaY*.001);distance=Math.max(.08,Math.min(100,distance));draw()};
+function matMul(a,b){const o=new Float32Array(16);for(let c=0;c<4;c++)for(let r=0;r<4;r++)for(let k=0;k<4;k++)o[c*4+r]+=a[k*4+r]*b[c*4+k];return o}function perspective(fov,aspect,n,f){const q=1/Math.tan(fov/2);return new Float32Array([q/aspect,0,0,0,0,q,0,0,0,0,(f+n)/(n-f),-1,0,0,2*f*n/(n-f),0])}function lookAt(eye,at,up){let z=norm(sub(eye,at)),x=norm(cross(up,z)),y=cross(z,x);return new Float32Array([x[0],y[0],z[0],0,x[1],y[1],z[1],0,x[2],y[2],z[2],0,-dot(x,eye),-dot(y,eye),-dot(z,eye),1])}const sub=(a,b)=>a.map((v,i)=>v-b[i]),dot=(a,b)=>a.reduce((s,v,i)=>s+v*b[i],0),cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]],norm=a=>{const n=Math.hypot(...a)||1;return a.map(v=>v/n)};
+function mvp(){const d=Math.cos(pitch)*distance,eye=[target[0]+Math.sin(yaw)*d,target[1]+Math.sin(pitch)*distance,target[2]+Math.cos(yaw)*d];return matMul(perspective(.78,canvas.width/canvas.height,.005,200),lookAt(eye,target,[0,1,0]))}function c2wMatrix(f){const src=data.c2w[f],out=new Float32Array(16);for(let r=0;r<4;r++)for(let c=0;c<4;c++)out[c*4+r]=src[r*4+c];return out}
+function reconstruct(f){const base=f*data.pointsPerFrame,tilesPerFrame=data.tilesY*data.tilesX;for(let y=0,i=0;y<data.height;y++)for(let x=0;x<data.width;x++,i++){const t=((f*tilesPerFrame+Math.floor(y/data.tileSize)*data.tilesX+Math.floor(x/data.tileSize))*2),lo=ranges[t],hi=ranges[t+1];depths[i]=validMask[base+i]?lo+(hi-lo)*(codes[base+i]/data.levels):NaN}gl.bindBuffer(gl.ARRAY_BUFFER,depthBuf);gl.bufferSubData(gl.ARRAY_BUFFER,0,depths)}
+function resize(){const d=Math.min(devicePixelRatio||1,2),w=Math.max(2,2*Math.round(canvas.clientWidth*d/2)),h=Math.max(2,2*Math.round(canvas.clientHeight*d/2));if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;gl.viewport(0,0,w,h)}}function draw(){resize();gl.enable(gl.DEPTH_TEST);gl.clearColor(...(window.snapshotWhiteBackground?[1,1,1,1]:[.025,.055,.06,1]));gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);const M=mvp();gl.useProgram(pointP);gl.bindBuffer(gl.ARRAY_BUFFER,gridBuf);gl.enableVertexAttribArray(0);gl.vertexAttribPointer(0,2,gl.FLOAT,false,0,0);gl.bindBuffer(gl.ARRAY_BUFFER,depthBuf);gl.enableVertexAttribArray(1);gl.vertexAttribPointer(1,1,gl.FLOAT,false,0,0);gl.uniformMatrix4fv(gl.getUniformLocation(pointP,'uMVP'),false,M);gl.uniformMatrix4fv(gl.getUniformLocation(pointP,'uC2W'),false,c2wMatrix(current));const K=data.intrinsics[current],fx=K[0],fy=K[4],cx=K[2],cy=K[5];gl.uniform4f(gl.getUniformLocation(pointP,'uK'),fx,fy,cx,cy);gl.uniform1f(gl.getUniformLocation(pointP,'uPointSize'),Number(sizeSlider.value)*(devicePixelRatio||1));gl.drawArrays(gl.POINTS,0,data.pointsPerFrame);gl.disable(gl.DEPTH_TEST);drawThickLines(trajectorySegments,[1,.67,.16,1],2.5);drawTrajectoryMarkers();drawCameraFrustum()}
+const wait=(el,event)=>new Promise(r=>el.addEventListener(event,r,{once:true}));async function setFrame(f){current=Math.max(0,Math.min(data.frameCount-1,f));const token=++requestId;reconstruct(current);frameSlider.value=current+1;frameValue.textContent=current+1;status.textContent=`第 ${current+1} / ${data.frameCount} 帧`;document.getElementById('count').textContent=`${data.validCounts[current].toLocaleString()} 有效点/帧 · 无下采样`;if(video.readyState<1)await wait(video,'loadedmetadata');video.currentTime=Math.min(video.duration-.001,(current+.5)*video.duration/data.frameCount);await wait(video,'seeked');if(token!==requestId)return;gl.bindTexture(gl.TEXTURE_2D,texture);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,video);canvas.dataset.renderedFrame=String(current);draw()}async function tick(){if(!playing)return;await setFrame((current+1)%data.frameCount);if(playing)timer=setTimeout(tick,250)}playBtn.onclick=()=>{playing=!playing;playBtn.textContent=playing?'暂停':'播放';if(playing)tick();else clearTimeout(timer)};frameSlider.oninput=()=>setFrame(Number(frameSlider.value)-1);sizeSlider.oninput=draw;window.onresize=draw;reset();await setFrame(0);parent.postMessage({type:'pointcloud-ready',frame:current},'*');
+let recorder=null,recordedChunks=[],recordedUrl=null,recordTimer=0,recordStartedAt=0,recordStream=null;function recordingType(){if(!window.MediaRecorder)return'';const types=['video/mp4;codecs=avc1.42E01E','video/mp4','video/webm;codecs=vp9','video/webm;codecs=vp8','video/webm'];return types.find(type=>MediaRecorder.isTypeSupported(type))||''}function recordingClock(){const seconds=Math.floor((Date.now()-recordStartedAt)/1000);recordTime.textContent=`REC ${String(Math.floor(seconds/60)).padStart(2,'0')}:${String(seconds%60).padStart(2,'0')}`}function releaseRecording(){clearInterval(recordTimer);recordTimer=0;if(recordStream){recordStream.getTracks().forEach(track=>track.stop());recordStream=null}}recordStartBtn.onclick=()=>{if(!window.MediaRecorder||!canvas.captureStream){status.innerHTML='<span class="error">当前浏览器不支持画布录制</span>';return}if(recordedUrl){URL.revokeObjectURL(recordedUrl);recordedUrl=null}recordDownload.hidden=true;recordedChunks=[];recordStream=canvas.captureStream(30);const mimeType=recordingType();try{recorder=new MediaRecorder(recordStream,mimeType?{mimeType,videoBitsPerSecond:12000000}:{videoBitsPerSecond:12000000})}catch(error){releaseRecording();status.innerHTML='<span class="error">无法启动录制</span>';return}recorder.ondataavailable=event=>{if(event.data&&event.data.size)recordedChunks.push(event.data)};recorder.onerror=()=>{releaseRecording();recordStartBtn.disabled=false;recordStopBtn.disabled=true;recordOverlay.hidden=true;status.innerHTML='<span class="error">录制失败</span>'};recorder.onstop=()=>{const type=recorder.mimeType||mimeType||'video/webm',extension=type.includes('mp4')?'mp4':'webm',blob=new Blob(recordedChunks,{type});recordedUrl=URL.createObjectURL(blob);recordDownload.href=recordedUrl;recordDownload.download=`${data.caseName}_pointcloud_${new Date().toISOString().replace(/[:.]/g,'-')}.${extension}`;recordDownload.textContent=`下载 ${extension.toUpperCase()}`;recordDownload.hidden=false;recordStartBtn.disabled=false;recordStopBtn.disabled=true;recordOverlay.hidden=true;releaseRecording();status.textContent=`录制完成 · ${(blob.size/1048576).toFixed(1)} MB`};recorder.start(250);recordStartedAt=Date.now();recordingClock();recordTimer=setInterval(recordingClock,250);recordStartBtn.disabled=true;recordStopBtn.disabled=false;recordOverlay.hidden=false;status.textContent='正在录制 · 可继续操作点云';draw()};recordStopBtn.onclick=()=>{if(recorder&&recorder.state!=='inactive'){recordStopBtn.disabled=true;recorder.stop()}};window.addEventListener('beforeunload',()=>{if(recorder&&recorder.state!=='inactive')recorder.stop();releaseRecording();if(recordedUrl)URL.revokeObjectURL(recordedUrl)});
+
+
+// Export only the current WebGL scene; keep the live background unchanged.
+const snapshotStyle=document.createElement('style');
+snapshotStyle.textContent='.recordControls{flex-wrap:wrap}.snapshotFloating{position:absolute;right:12px;bottom:12px;z-index:3;background:#ffb544;color:#10191b;border:1px solid #ffd08b;font-weight:700;box-shadow:0 2px 10px #0008;padding:10px 14px;cursor:pointer}.recordOverlay{bottom:60px}.snapshotDialog{width:min(92vw,1100px);max-height:92vh;padding:14px;border:1px solid #607075;border-radius:12px;background:#fff;color:#172326}.snapshotDialog::backdrop{background:#0009}.snapshotDialog img{display:block;max-width:100%;max-height:65vh;margin:12px auto;background:#fff}.snapshotDialog .actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.snapshotDialog a{background:#172326;color:#fff}.snapshotDialog p{margin:8px 0;font-size:13px}';
+document.head.appendChild(snapshotStyle);
+const snapshotButton=document.createElement('button');
+snapshotButton.id='snapshotSave';
+snapshotButton.textContent='保存白底图片';
+snapshotButton.title='保存当前帧和当前视角，PNG背景为不透明白色';
+snapshotButton.className='snapshotFloating';
+document.querySelector('.stage').append(snapshotButton);
+const snapshotDialog=document.createElement('dialog');
+snapshotDialog.className='snapshotDialog';
+snapshotDialog.id='snapshotDialog';
+snapshotDialog.innerHTML='<div class="actions"><strong>白底 PNG 预览</strong><button type="button" id="snapshotClose">关闭</button></div><p id="snapshotInfo"></p><img id="snapshotPreview" alt="当前点云的白色背景截图"><div class="actions"><a class="downloadAction" id="snapshotDownload">下载 PNG</a></div><p>只导出当前点云画布与相机轨迹，不包含控件。浏览器未自动下载时，请点击“下载 PNG”。</p>';
+document.body.appendChild(snapshotDialog);
+const snapshotPreview=document.getElementById('snapshotPreview');
+const snapshotDownload=document.getElementById('snapshotDownload');
+document.getElementById('snapshotClose').onclick=()=>snapshotDialog.close();
+snapshotButton.onclick=()=>{
+  if(video.readyState<2 || video.seeking || canvas.dataset.renderedFrame!==String(current)){
+    status.textContent='当前帧正在加载，请稍后再保存图片';
+    return;
+  }
+  snapshotButton.disabled=true;
+  const savedFrame=current+1;
+  try{
+    const capture=document.createElement('canvas');
+    // All operations up to restoring draw() are synchronous. The recording
+    // canvas is restored before the next browser paint/captureStream frame.
+    window.snapshotWhiteBackground=true;
+    draw();
+    capture.width=canvas.width;capture.height=canvas.height;
+    const ctx=capture.getContext('2d',{alpha:false});
+    if(!ctx)throw new Error('无法创建截图画布');
+    ctx.fillStyle='#fff';ctx.fillRect(0,0,capture.width,capture.height);
+    ctx.drawImage(canvas,0,0);
+    window.snapshotWhiteBackground=false;
+    draw();
+    const png=capture.toDataURL('image/png');
+    const stamp=new Date().toISOString().replace(/[:.]/g,'-');
+    snapshotPreview.src=png;
+    snapshotDownload.href=png;
+    snapshotDownload.download=`${data.caseName}_frame_${String(savedFrame).padStart(3,'0')}_white_${stamp}.png`;
+    document.getElementById('snapshotInfo').textContent=`${data.caseName} · 第 ${savedFrame} 帧 · ${capture.width} × ${capture.height} · 白色不透明背景`;
+    snapshotDialog.showModal();
+    snapshotDownload.click();
+  }catch(error){
+    status.textContent='保存图片失败：'+error.message;
+  }finally{
+    window.snapshotWhiteBackground=false;
+    draw();
+    snapshotButton.disabled=false;
+  }
+};
+
+
+window.addEventListener('message',async e=>{
+ if(e.source!==parent || e.data?.type!=='pointcloud-frame')return;
+ playing=false;clearTimeout(timer);playBtn.textContent='播放';
+ await setFrame(e.data.frame);
+ parent.postMessage({type:'pointcloud-ready',frame:current},'*');
+});
+// VIEW_SYNC_PLAYER_BEGIN
+const viewHome = {target: [...target], distance};
+const validView = v => v && Number.isFinite(v.yaw) && Number.isFinite(v.pitch) &&
+  Number.isFinite(v.distance) && v.distance > 0 && Array.isArray(v.target) &&
+  v.target.length === 3 && v.target.every(Number.isFinite);
+function viewSnapshot() {
+  const absolute = {yaw, pitch, distance, target: [...target]};
+  return {absolute, relative: {yaw, pitch, zoom: distance / viewHome.distance,
+    pan: target.map((v, i) => (v - viewHome.target[i]) / viewHome.distance)}};
+}
+function exposeView() {
+  canvas.dataset.viewState = JSON.stringify(viewSnapshot());
+}
+function publishView(type = 'pointcloud-view-change') {
+  exposeView();
+  if (parent !== window) parent.postMessage({type, view: viewSnapshot()}, location.origin);
+}
+let viewPublishFrame = 0;
+function scheduleView() {
+  if (viewPublishFrame) return;
+  viewPublishFrame = requestAnimationFrame(() => {viewPublishFrame = 0; publishView();});
+}
+canvas.addEventListener('pointermove', e => {if (e.buttons) scheduleView();});
+canvas.addEventListener('wheel', scheduleView, {passive: true});
+canvas.addEventListener('dblclick', scheduleView);
+document.getElementById('reset').addEventListener('click', scheduleView);
+window.addEventListener('message', e => {
+  if (e.source !== parent || e.origin !== location.origin) return;
+  if (e.data?.type === 'pointcloud-view-request') {publishView(); return;}
+  if (e.data?.type === 'pointcloud-view-home') {reset(); publishView(); return;}
+  if (e.data?.type !== 'pointcloud-view-apply') return;
+  const state = e.data.view;
+  if (!state || !validView(state.absolute)) return;
+  let next = state.absolute;
+  if (e.data.mode === 'relative') {
+    const r = state.relative;
+    if (!r || !Number.isFinite(r.zoom) || r.zoom <= 0 || !Array.isArray(r.pan) ||
+        r.pan.length !== 3 || !r.pan.every(Number.isFinite)) return;
+    next = {yaw: state.absolute.yaw, pitch: state.absolute.pitch,
+      distance: r.zoom * viewHome.distance,
+      target: viewHome.target.map((v, i) => v + r.pan[i] * viewHome.distance)};
+  } else if (e.data.mode !== 'absolute') return;
+  if (!validView(next)) return;
+  yaw = next.yaw; pitch = Math.max(-1.45, Math.min(1.45, next.pitch));
+  distance = next.distance; target = [...next.target];
+  draw(); exposeView();
+  // Applying a remote view never broadcasts, preventing feedback loops.
+});
+publishView('pointcloud-view-ready');
+// VIEW_SYNC_PLAYER_END
+
+})().catch(error=>{document.getElementById('status').textContent='加载失败: '+error.message;console.error(error)});
+</script></body></html>

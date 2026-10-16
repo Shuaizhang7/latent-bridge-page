@@ -1,0 +1,110 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WildRGB-D case_300 / car / scene_005</title><style>
+:root{--ink:#edf3eb;--muted:#b0c2b9;--line:#345249;--accent:#f4c06a}*{box-sizing:border-box}body{margin:0;padding:14px;background:radial-gradient(ellipse at top,#213e35,#081412 70%);color:var(--ink);font:14px/1.5 'Avenir Next','PingFang SC',sans-serif}h1{font-size:23px;margin:0}h2{font-size:16px;margin:0;padding:9px;color:var(--accent)}p{color:var(--muted);margin:5px 0}.header{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}table{border-collapse:collapse;font-variant-numeric:tabular-nums}td,th{padding:4px 10px;border:1px solid var(--line)}.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0}button,select{padding:8px 13px;background:#192e27;color:var(--ink);border:1px solid var(--line);border-radius:8px;cursor:pointer}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}section{min-width:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#081411}iframe{border:0;width:100%;height:680px;display:block}.solo{display:block;padding:7px;color:var(--accent)}video{width:100%;aspect-ratio:1;display:block;background:#000}.note{font-size:12px;margin:10px 0}.gt{max-width:420px;margin-top:18px}a{color:var(--accent)}@media(max-width:900px){.grid{grid-template-columns:1fr}iframe{height:75vh}.header{display:block}table{margin:10px 0}}.metric-scroll{max-width:100%;overflow-x:auto} .header>div{min-width:0}</style>
+<div class="header"><div><h1>WildRGB-D case_300 / car / scene_005</h1><p>同一场景 / 五方法对比 / Aether 41帧，其余49帧</p><p><a href="../../index.html#explore">返回选例</a> | <a href="../../index.html#explore">290</a> | <a href="../../index.html#explore">196</a> | <a href="../../index.html#explore">300</a> | <a href="../../index.html#explore">314</a> | <a href="../../index.html#explore">350</a></p></div><div class="metric-scroll"><table><tr><th>过滤后指标(m)</th><th>WAN</th><th>VRAE</th><th>Gen3R (49f)</th><th>Aether (41f)</th><th>FantasyWorld (49f)</th></tr><tr><th>Accuracy</th><td>0.00462</td><td>0.00515</td><td>0.00706</td><td>0.00490</td><td>0.00812</td></tr><tr><th>Completeness</th><td>0.00466</td><td>0.00655</td><td>0.00842</td><td>0.01265</td><td>0.00642</td></tr><tr><th>CD</th><td>0.00464</td><td>0.00585</td><td>0.00774</td><td>0.00877</td><td>0.00727</td></tr></table></div></div>
+<div class="bar"><select id="mode"><option value="filtered">评估点云：mask + log-MAD + 多视角</option><option value="full">完整场景：不加评估mask和深度过滤</option></select><button id="sync">同步播放共同41帧</button><input id="frame" type="range" min="1" max="41" value="1"><span id="label">1 / 41</span><span id="state">正在加载点云</span></div>
+<div class="bar" id="viewControls">
+<label><input type="checkbox" id="viewLinked" checked> 同步视角</label>
+<select id="viewMode" aria-label="视角同步模式"><option value="relative">同方向 + 相对取景（推荐）</option><option value="absolute">相同绝对观察相机</option></select>
+<button id="viewAlign">以 WAN 当前视角对齐</button><button id="viewReset">重置联动视角</button>
+<span id="viewStatus" role="status">等待所有有效视图就绪</span></div>
+<p class="note">拖动、滚轮缩放、右键平移任一3D窗口，其他窗口跟随。相对模式以各自初始取景为基准，不代表相同米制尺度；绝对模式复制观察相机的方向、位置与焦点，但不对模型输出做几何配准，不改预测相机、深度或指标。导出图片和录制使用当前联动视角；比较同一时刻请同时使用共同41帧同步播放。</p>
+<!-- FIVE_METHODS_BEGIN --><p class="note">同步比较仅使用共同前41帧；单独打开可看各方法全部原生帧。表格保留各自正式协议的完整序列指标（Aether41帧 / 其他49帧），不是重新计算的共同41帧指标。Aether使用其原生裁剪与预测相机，FantasyWorld保留原始预测相机；两者使用各自保存的正式过滤掩码，不借用WAN掩码、不做额外配准。</p><main class="grid"><section><h2>WAN Mixed4 Gen17K + Bridge94K</h2><iframe title="WAN Mixed4 Gen17K + Bridge94K" data-method="wan" src="wan_filtered.html"></iframe><a class="solo" href="wan_filtered.html" target="_blank">单独打开3D</a></section><section><h2>VRAE DiT61K EMA + Adapter50K</h2><iframe title="VRAE DiT61K EMA + Adapter50K" data-method="vrae" src="vrae_filtered.html"></iframe><a class="solo" href="vrae_filtered.html" target="_blank">单独打开3D</a></section><section><h2>Gen3R official / 30 steps</h2><iframe title="Gen3R official / 30 steps" data-method="gen3r" src="gen3r_filtered.html"></iframe><a class="solo" href="gen3r_filtered.html" target="_blank">单独打开3D</a></section><section><h2>Aether / native 41f</h2><iframe title="Aether / native 41f" data-method="aether" src="aether_filtered.html"></iframe><a class="solo" href="aether_filtered.html" target="_blank">单独打开原生41帧3D</a></section><section><h2>FantasyWorld / 30 steps / 49f</h2><iframe title="FantasyWorld / 30 steps / 49f" data-method="fantasyworld" src="fantasyworld_filtered.html"></iframe><a class="solo" href="fantasyworld_filtered.html" target="_blank">单独打开原生49帧3D</a></section></main><p class="note">默认展示保留全部有效点的评估区域点云，不做FPS20K显示采样。WAN使用评估中的旋转/方向修正，VRAE与Gen3R保留模型预测相机；不替换GT内参。完整场景切换不改变该相机协议。视窗各自取景，不代表统一米制尺度；需要用指标判断尺度误差。深度仅为显示采用6-bit分块量化。WAN/VRAE使用保存的正式掩码；Gen3R为本地过滤复现，显示点数与正式记录相差+0，未验证逐像素完全一致，表格仍是原始正式指标。</p>
+<p><a href="../../index.html#explore">查看五方法第31帧 RGB + 原始深度对比</a></p><h2>对应生成视频</h2><div class="bar"><button id="videoPlay">同步播放 / 暂停共同41帧视频</button></div><div class="grid videos"><section><h2>WAN Mixed4 Gen17K + Bridge94K</h2><video controls playsinline muted loop preload="metadata" src="wan.mp4"></video></section><section><h2>VRAE DiT61K EMA + Adapter50K</h2><video controls playsinline muted loop preload="metadata" src="vrae.mp4"></video></section><section><h2>Gen3R official / 30 steps</h2><video controls playsinline muted loop preload="metadata" src="gen3r.mp4"></video></section><section><h2>Aether / native 41f</h2><video controls playsinline muted preload="metadata" src="aether.mp4"></video></section><section><h2>FantasyWorld / 30 steps / 49f</h2><video controls playsinline muted preload="metadata" src="fantasyworld.mp4"></video></section></div><p class="note">下方视频与各自点云使用同一份RGB。VRAE保留正式评估的49帧导出协议（目标12个latent解码 + 输入首帧），没有替换成后来的full13导出版本。</p><section class="gt"><h2>GT参考视频</h2><video controls muted loop src="gt.mp4"></video></section>
+<script>const panes=[...document.querySelectorAll('iframe')],slider=document.getElementById('frame'),button=document.getElementById('sync'),state=document.getElementById('state');let frame=0,playing=false,timer=0,pending=new Set(panes.map(p=>p.contentWindow));function stop(){playing=false;clearTimeout(timer);button.textContent='同步播放共同41帧'}function send(){pending=new Set(panes.map(p=>p.contentWindow));slider.value=frame+1;document.getElementById('label').textContent=`${frame+1} / 41`;state.textContent='帧同步中';panes.forEach(p=>p.contentWindow.postMessage({type:'pointcloud-frame',frame},'*'))}window.addEventListener('message',e=>{if(e.data?.type!=='pointcloud-ready'||e.data.frame!==frame||!panes.some(p=>p.contentWindow===e.source))return;pending.delete(e.source);if(!pending.size){state.textContent='所有有效视图就绪';if(playing)timer=setTimeout(()=>{frame=(frame+1)%41;send()},250)}});button.onclick=()=>{if(playing)return stop();playing=true;button.textContent='暂停同步';send()};slider.oninput=()=>{stop();frame=Number(slider.value)-1;send()};document.getElementById('mode').onchange=e=>{stop();frame=0;slider.value=1;document.getElementById('label').textContent='1 / 41';state.textContent='正在切换点云';pending=new Set(panes.map(p=>p.contentWindow));panes.forEach(p=>{p.src=p.dataset.method+'_'+e.target.value+'.html';p.parentElement.querySelector('.solo').href=p.src})};document.getElementById('videoPlay').onclick=()=>{const vs=[...document.querySelectorAll('.videos video')];if(vs.some(v=>!v.paused))vs.forEach(v=>v.pause());else vs.forEach(v=>{v.currentTime=0;v.play().catch(()=>{})})};</script><script>
+// VIEW_SYNC_PARENT_BEGIN
+const linkedView = document.getElementById('viewLinked');
+const viewMode = document.getElementById('viewMode');
+const viewStatus = document.getElementById('viewStatus');
+const viewFrames = [...document.querySelectorAll('iframe[data-method]')];
+const readyViews = new Map();
+let lastViewSource = viewFrames[0];
+function sendViewMessage(pane, message) {
+  pane.contentWindow.postMessage(message, location.origin);
+}
+function viewDescription(source) {
+  const prefix = viewMode.value === 'relative' ? '同方向 / 相对取景' : '相同绝对观察相机';
+  viewStatus.textContent = linkedView.checked ? `${prefix} · 跟随 ${source.dataset.method.toUpperCase()}` : '独立视角';
+}
+function relayView(source, view) {
+  lastViewSource = source;
+  readyViews.set(source, view);
+  viewDescription(source);
+  if (!linkedView.checked) return;
+  viewFrames.filter(p => p !== source).forEach(p => sendViewMessage(p,
+    {type: 'pointcloud-view-apply', mode: viewMode.value, view}));
+}
+window.addEventListener('message', e => {
+  if (e.origin !== location.origin) return;
+  const source = viewFrames.find(p => p.contentWindow === e.source);
+  if (!source) return;
+  if (e.data?.type === 'pointcloud-view-ready') {
+    readyViews.set(source, e.data.view);
+    if (readyViews.size === viewFrames.length) relayView(viewFrames[0], readyViews.get(viewFrames[0]));
+  } else if (e.data?.type === 'pointcloud-view-change') relayView(source, e.data.view);
+});
+linkedView.onchange = () => {
+  viewDescription(lastViewSource);
+  if (linkedView.checked) sendViewMessage(lastViewSource, {type: 'pointcloud-view-request'});
+};
+viewMode.onchange = () => {
+  viewDescription(lastViewSource);
+  if (linkedView.checked) sendViewMessage(lastViewSource, {type: 'pointcloud-view-request'});
+};
+document.getElementById('viewAlign').onclick = () => {
+  linkedView.checked = true;
+  sendViewMessage(viewFrames[0], {type: 'pointcloud-view-request'});
+};
+document.getElementById('viewReset').onclick = () => {
+  linkedView.checked = true;
+  sendViewMessage(viewFrames[0], {type: 'pointcloud-view-home'});
+};
+document.getElementById('mode').addEventListener('change', () => {
+  readyViews.clear(); lastViewSource = viewFrames[0];
+  viewStatus.textContent = '切换数据后重新同步视角';
+});
+// VIEW_SYNC_PARENT_END
+
+</script><script>
+// Native clips stay intact. Group playback uses the common 41 source indices.
+(() => {
+  const videos = [...document.querySelectorAll('.videos video')];
+  const button = document.getElementById('videoPlay');
+  let running = false, tick = 0;
+  const count = v => v.getAttribute('src').includes('aether') ? 41 : 49;
+  function pause() {
+    running = false;
+    cancelAnimationFrame(tick);
+    videos.forEach(v => v.pause());
+    button.textContent = '同步播放 / 暂停共同41帧视频';
+  }
+  function track() {
+    if (!running) return;
+    const ref = videos[0], frame = ref.currentTime / ref.duration * count(ref);
+    if (frame >= 40.5 || ref.ended) {
+      pause();
+      videos.forEach(v => { v.currentTime = 40.5 / count(v) * v.duration; });
+      return;
+    }
+    for (const v of videos.slice(1)) {
+      const index = v.currentTime / v.duration * count(v);
+      if (Math.abs(index - frame) > 0.7) v.currentTime = frame / count(v) * v.duration;
+    }
+    tick = requestAnimationFrame(track);
+  }
+  button.onclick = async () => {
+    if (running || videos.some(v => !v.paused)) return pause();
+    if (videos.some(v => !Number.isFinite(v.duration) || v.duration <= 0)) {
+      button.textContent = '视频元数据尚未加载，请稍后再试';
+      return;
+    }
+    videos.forEach(v => { v.loop = false; v.currentTime = 0; v.playbackRate = v.duration / count(v) * 8; });
+    running = true;
+    button.textContent = '暂停同步视频';
+    try { await Promise.all(videos.map(v => v.play())); } catch (error) {
+      pause(); button.textContent = '播放失败：' + error.message; return;
+    }
+    if (running) track();
+  };
+})();
+
+</script></html>

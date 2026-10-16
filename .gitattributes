@@ -1,0 +1,7 @@
+* text=auto
+*.mp4 -text
+*.pdf -text
+*.png -text
+*.jpg -text
+*.gz -text
+

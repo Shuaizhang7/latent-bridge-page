@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f6f2">
+  <meta name="description" content="Latent Bridge connects video generative latents to frozen geometric features. Explore videos, depth, and interactive five-method 3D comparisons.">
+  <title>Latent Bridge | From Video Latents to 3D Geometry</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+  <script src="applications.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead"><a class="brand" href="#" aria-label="Latent Bridge home"><svg viewBox="0 0 38 30" aria-hidden="true"><path d="M2 25V8h8v17M28 25V8h8v17M10 15C15 4 23 4 28 15M10 22C15 11 23 11 28 22"/></svg><span>Latent Bridge</span></a><nav aria-label="Main navigation"><a href="#method">Method</a><a href="#explore">Explore</a><a href="#results">Results</a><a role="link" aria-disabled="true" title="arXiv link coming soon">Read the paper <span>Coming soon</span></a></nav></header>
+<main id="main">
+<section class="hero section-width">
+  <h1>Latent Bridge<span>From Video Latents to 3D Geometry<br>via Feature Alignment</span></h1>
+  <div class="authors">Shuai Zhang<sup>1</sup>, Zhanpeng Ouyang<sup>2,‡</sup>, Zhengqing Chen<sup>2</sup>, Ruohong Mei<sup>2</sup>, Shaoyu Chen<sup>2</sup>,<br class="desktop"> Weiqiang Ren<sup>2</sup>, Hui Sun<sup>2</sup>, Qian Zhang<sup>2</sup>, Wenyu Liu<sup>1</sup>, Xinggang Wang<sup>1,†</sup></div>
+  <p class="affiliations"><span><sup>1</sup> Huazhong University of Science and Technology</span><span><sup>2</sup> Horizon Robotics</span></p>
+  <p class="author-notes">‡ Project leader &nbsp; · &nbsp; † Corresponding author</p>
+  <!-- Replace these placeholders with links when the arXiv and GitHub URLs are available. -->
+  <div class="actions"><button class="button primary publication-pending" disabled title="arXiv link coming soon">Paper <span>Coming soon</span></button><button class="button publication-pending" disabled title="GitHub repository coming soon">Code <span>Coming soon</span></button></div>
+  <figure class="teaser paper-overview" id="method">
+    <div class="teaser-top"><h2 class="section-title">Method Overview</h2><span>Alignment training · Generative inference</span></div>
+    <a class="paper-overview-image" href="assets/fig2_3.pdf" target="_blank" rel="noopener" aria-label="Open the original architecture PDF"><img src="assets/fig2_3.png" width="2400" height="1412" fetchpriority="high" alt="Paper Figure 2. Alignment training with frozen video encoder and DINOv3 teacher; generative inference through Latent Bridge into VGGT-Omega; encoder-specific Wan2.1 and V-RAE Bridge architectures."></a>
+    <figcaption class="teaser-caption"><span>Figure 2. Only the Bridge is trained. A shared video latent supports both RGB decoding and 3D geometry.</span><a href="assets/fig2_3.pdf" target="_blank" rel="noopener">View original PDF ↗</a><a id="heroGeometryLink" href="#pointcloud">Explore in 3D ↓</a></figcaption>
+  </figure>
+</section>
+<section class="idea section-width" id="overview"><div><span class="section-kicker">THE IDEA</span><h2>Recover geometry<br>before decoding color.</h2></div><div class="idea-copy"><p>Video generation and 3D reconstruction speak different representational languages. Connecting them usually means decoding RGB frames, then encoding those frames all over again.</p><p><strong>Latent Bridge learns the connection instead.</strong> A representation-specific network maps Wan2.1 or V-RAE latents into the native feature space of frozen VGGT-Ω. The same latent can then produce both a video and cameras, depth, and 3D point clouds.</p><div class="principles"><span>Only the Bridge is trained</span><span>No GT geometry supervision</span><span>Frozen geometry model</span></div></div></section>
+<section class="section-width explore" id="explore"><div class="section-heading"><div><h2 class="section-title">Qualitative Results</h2></div></div>
+<div class="case-tabs" role="group" aria-label="Choose dataset"><button data-case="car" class="active" aria-pressed="true">WildRGB-D</button><button data-case="apple" aria-pressed="false">Co3Dv2</button><button data-case="interior" aria-pressed="false">DL3DV</button><button data-case="home" aria-pressed="false">RealEstate10K</button></div>
+<div id="benchmarkCases" class="application-case-tabs" role="group" aria-label="Choose comparison case" hidden></div>
+<div class="display-toolbar"><div role="group" aria-label="Display mode" class="segmented"><button data-display="video" class="active" aria-pressed="true">Video</button><button data-display="depth" aria-pressed="false">RGB + depth</button></div><div id="videoControls" class="cloud-toolbar"><button id="playFrames" class="play-button">▶ Play frames</button><label for="frameSlider">Common frame</label><input id="frameSlider" type="range" min="1" max="41" value="1"><span id="frameLabel" class="mono">01 / 41</span></div><label id="depthControls" hidden>Depth display <select id="depthMapping"><option value="contrast">Per-method contrast</option><option value="shared">Shared linear range</option></select></label></div>
+<div id="methodGrid" class="method-grid" aria-live="polite"></div>
+<section class="inline-cloud" id="pointcloud" aria-labelledby="cloudTitle">
+  <div class="cloud-heading"><h3 id="cloudTitle">3D point clouds</h3></div>
+  <div class="cloud-toolbar"><label><input id="cloudLinked" type="checkbox" checked> Link viewpoints</label><label><span class="sr-only">View synchronization mode</span><select id="cloudViewMode"><option value="relative">Same direction + relative framing</option><option value="absolute">Same absolute observing camera</option></select></label><button id="cloudAlign">Align to WAN</button><button id="cloudReset">Reset views</button><span id="cloudViewStatus" role="status">Drag any view to control all five.</span></div>
+  <div class="cloud-toolbar"><button id="cloudPlay" disabled>Play all 41 frames</button><label for="cloudFrameSlider">Common frame</label><input id="cloudFrameSlider" type="range" min="1" max="41" value="1" disabled><span id="cloudFrameLabel" class="mono">01 / 41</span></div>
+  <div class="cloud-scroll" tabindex="0" role="region" aria-label="Five full-scene point clouds aligned with the video grid"><div id="cloudGrid" class="cloud-grid"></div></div>
+  <div class="cloud-footer"><span id="cloudStatus" role="status">All five full-density viewers load when you scroll here.</span><div><a id="viewerLink" href="scenes/car/comparison.html" target="_blank" rel="noopener">Original five-method comparison ↗</a></div></div>
+</section>
+<p id="mediaStatus" class="small-note" role="status"></p>
+</section>
+<section class="section-width applications" id="applications" aria-labelledby="applicationTitle">
+  <div class="section-heading"><div><h2 id="applicationTitle" class="section-title">Applications to other I2V and T2V models.</h2></div></div>
+  <div class="application-toolbar"><div class="segmented" role="group" aria-label="Application type"><button data-application="driving" class="active" aria-pressed="true">Autonomous driving</button><button data-application="t2v" aria-pressed="false">Text-to-video</button></div></div>
+  <div id="applicationCases" class="application-case-tabs" role="group" aria-label="Application case"></div>
+  <div class="application-identity"><p id="applicationWeights" class="mono"></p></div>
+  <div class="cloud-toolbar"><button id="applicationPlay" disabled>Play all 49 frames</button><label for="applicationFrame">Frame</label><input id="applicationFrame" type="range" min="1" max="49" value="1" disabled><span id="applicationFrameLabel" class="mono">01 / 49</span><span id="applicationStatus" role="status">The viewer loads when this section is visible.</span></div>
+  <div class="application-grid" id="applicationGrid"></div>
+</section>
+<section class="results-section" id="results"><div class="section-width"><div class="section-heading"><div><h2 class="section-title">Quantitative Results</h2></div></div>
+<div class="results-toolbar"><div class="segmented" role="group" aria-label="Results type"><button data-table="geometry" class="active" aria-pressed="true">3D reconstruction</button><button data-table="video" aria-pressed="false">Video generation</button></div><label>Dataset <select id="metricDataset"><option value="co3d">Co3Dv2</option><option value="wild">WildRGB-D</option><option value="dl3dv" disabled>DL3DV</option><option value="re10k" disabled>RealEstate10K</option></select></label></div>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Paper results table"><table id="metricsTable"><caption class="sr-only">Geometry results from Table 1 of the paper</caption><thead></thead><tbody></tbody></table></div><p id="metricNote" class="small-note"></p>
+<div class="efficiency"><div><span class="section-kicker">THE MATCHED-LATENT COMPARISON</span><h3>Less decoding.<br>More direct.</h3><p>Same generated latents. Same frozen Ω aggregator and heads. Only the route into the geometry model changes.</p><a href="assets/latent-bridge.pdf#page=8" target="_blank" rel="noopener" class="text-link">Table 3 in the paper ↗</a></div><div class="timing-card"><div class="timing-title">Wan2.1 <b>1.61×</b></div><div class="timing-row"><span>RGB route</span><div style="--width:100%" class="bar baseline"></div><b>7.92 s</b></div><div class="timing-row"><span>Bridge</span><div style="--width:62.12%" class="bar"></div><b>4.92 s</b></div></div><div class="timing-card"><div class="timing-title">V-RAE <b>1.24×</b></div><div class="timing-row"><span>RGB route</span><div style="--width:100%" class="bar baseline"></div><b>5.76 s</b></div><div class="timing-row"><span>Bridge</span><div style="--width:80.55%" class="bar"></div><b>4.64 s</b></div></div></div>
+</div></section>
+<section class="section-width citation-section" id="resources" aria-label="Citation">
+<div class="citation"><div><h3>Citation</h3><span>Preprint metadata; no arXiv identifier has been supplied.</span></div><button id="copyCitation" class="button compact">Copy BibTeX</button><pre id="bibtex">@misc{zhang2026latentbridge,
+  title={Latent Bridge: From Video Latents to 3D Geometry via Feature Alignment},
+  author={Shuai Zhang and Zhanpeng Ouyang and Zhengqing Chen and Ruohong Mei and Shaoyu Chen and Weiqiang Ren and Hui Sun and Qian Zhang and Wenyu Liu and Xinggang Wang},
+  year={2026},
+  note={Preprint}
+}</pre><span id="copyStatus" role="status"></span></div>
+</section>
+</main><footer class="section-width"><a class="brand" href="#">Latent Bridge<span class="footer-symbol">↗</span></a><p>Huazhong University of Science and Technology · Horizon Robotics</p><span>Research project · 2026</span></footer>
+<noscript><p>This page's paper and 3D links work without JavaScript. Enable JavaScript to use dataset switches and result tables.</p></noscript>
+</body></html>

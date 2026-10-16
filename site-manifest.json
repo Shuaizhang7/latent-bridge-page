@@ -1,0 +1,1184 @@
+{
+  "files": [
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "app.js",
+      "bytes": 17617,
+      "sha256": "173b99d66922e8509a8a238749fe2f3c79fc04c1568780874b315f79df5ab9dd"
+    },
+    {
+      "path": "applications.js",
+      "bytes": 9341,
+      "sha256": "c90373220c88bb006e7c5922e529d65b0f01ae4dddbd08b70df0b25a6d2e6652"
+    },
+    {
+      "path": "applications.json",
+      "bytes": 19983,
+      "sha256": "03c56850b77c8e486e10f3257b8957bcbff6bcaa40dfd47792e20122ca501e25"
+    },
+    {
+      "path": "applications/driving_case_010/depth.jpg",
+      "bytes": 38008,
+      "sha256": "413f6114bf8dcfefa7bc6ebe8c4f279c2208a50c5c0822071218e46590dfe4b1"
+    },
+    {
+      "path": "applications/driving_case_010/depth.mp4",
+      "bytes": 453484,
+      "sha256": "70570c8965f72e8c4be7119d21815b842f9ddbe470ef7d54095835e58d85dba0"
+    },
+    {
+      "path": "applications/driving_case_010/geometry.json.gz",
+      "bytes": 9191750,
+      "sha256": "7d4b1fbaeaf004d4e0c11f178ade1e5373c1698c4dd96e2f5f08f5e9df8ca18c"
+    },
+    {
+      "path": "applications/driving_case_010/player.html",
+      "bytes": 26548,
+      "sha256": "938f53de1c190f6f8c955688abb1aec6fd6ca32a4ac84dd51dffd03ab3b642f6"
+    },
+    {
+      "path": "applications/driving_case_010/rgb.jpg",
+      "bytes": 50258,
+      "sha256": "bc39e4a57efa5b40aaa54725ea6ece5a04deb92e649f5e8de1316dcb48d7f20f"
+    },
+    {
+      "path": "applications/driving_case_010/rgb.mp4",
+      "bytes": 328800,
+      "sha256": "9099c170ec038ab19becb19644d708bf98c999857fbb47d61ad02ac11e214ef7"
+    },
+    {
+      "path": "applications/driving_case_010/sky.json.gz",
+      "bytes": 57317,
+      "sha256": "680f8d7121bbed034ee1cdc111e8bfa4806252b5401266037236f8ecf997031e"
+    },
+    {
+      "path": "applications/driving_case_090/depth.jpg",
+      "bytes": 31990,
+      "sha256": "daa14d0ef6becb8ebb99291148eb7273d82fd59eb6b20cc38b65b5edb54163fe"
+    },
+    {
+      "path": "applications/driving_case_090/depth.mp4",
+      "bytes": 448636,
+      "sha256": "93034f62d528b5bbbad0923907f7a2e944fe6828445c11eb2bc8bb109e0e5e36"
+    },
+    {
+      "path": "applications/driving_case_090/geometry.json.gz",
+      "bytes": 7919853,
+      "sha256": "da362d2e5cadb3438f4ebd89fd67fc11a3ce367418602261421596a2794f5a0e"
+    },
+    {
+      "path": "applications/driving_case_090/player.html",
+      "bytes": 26548,
+      "sha256": "fe208d1109d1778f9926af2cd43e318b0a9573008d262b93a052f1a07ba2f33e"
+    },
+    {
+      "path": "applications/driving_case_090/rgb.jpg",
+      "bytes": 51716,
+      "sha256": "20b156b3e5322b2f0ece336b2d450b366f7a41d71c03b9f8dbf606e40e3300d2"
+    },
+    {
+      "path": "applications/driving_case_090/rgb.mp4",
+      "bytes": 707008,
+      "sha256": "4681b169b1572a6c6acf01a643ebf28af393e905320c470ba17a3831fe6dd776"
+    },
+    {
+      "path": "applications/driving_case_090/sky.json.gz",
+      "bytes": 37403,
+      "sha256": "69a4068c75d7036400c1ec4ca4b16f421d8b699c877394150b3d73d872f8b963"
+    },
+    {
+      "path": "applications/driving_case_150/depth.jpg",
+      "bytes": 37007,
+      "sha256": "3c0ba933ecc83c55bfd9356ae5add655ccc7c9b419d9b6071bd07cc17d51f76f"
+    },
+    {
+      "path": "applications/driving_case_150/depth.mp4",
+      "bytes": 545467,
+      "sha256": "8ac7a022f8bca92d17487f19c2f15bc81cae43f996ca80b9be1ea5be375d39d0"
+    },
+    {
+      "path": "applications/driving_case_150/geometry.json.gz",
+      "bytes": 7919415,
+      "sha256": "c65b6c818593667df9a65a1ee306f3deb8eb26fa9f8005103c81d3d01bf97b5f"
+    },
+    {
+      "path": "applications/driving_case_150/player.html",
+      "bytes": 26548,
+      "sha256": "6256fee891cc03ca03314dc57616f35598e3594ec473abc182fe3af577810c11"
+    },
+    {
+      "path": "applications/driving_case_150/rgb.jpg",
+      "bytes": 34515,
+      "sha256": "b0e585ef767bd066092b722f3780f0593e4cddd73673ac1beee8a3a706eb384d"
+    },
+    {
+      "path": "applications/driving_case_150/rgb.mp4",
+      "bytes": 417494,
+      "sha256": "8dd9ac9bf9730c5a21cf8ec454714b4e22ea9dbd9d69c4a8e696f8edb9403679"
+    },
+    {
+      "path": "applications/driving_case_150/sky.json.gz",
+      "bytes": 58563,
+      "sha256": "0a940c304a7b5555cf60817db6542df32d12f45512672727c8320f5edc769a1b"
+    },
+    {
+      "path": "applications/t2v_t2v_cam20_013_canyon/depth.jpg",
+      "bytes": 21162,
+      "sha256": "b4410b6ed4f559db2bd9f244a432c88da423c24ac1d68e5748d60c2f0e95e380"
+    },
+    {
+      "path": "applications/t2v_t2v_cam20_013_canyon/depth.mp4",
+      "bytes": 196586,
+      "sha256": "91c828e2dd908af31bc424353bed5400532b3a82559099c9335c1e2606358492"
+    },
+    {
+      "path": "applications/t2v_t2v_cam20_013_canyon/geometry.json.gz",
+      "bytes": 8895029,
+      "sha256": "96478d9f5dc01756cbae120ad1357bece59e35707138c5a25036c74db8e4b4ac"
+    },
+    {
+      "path": "applications/t2v_t2v_cam20_013_canyon/player.html",
+      "bytes": 24288,
+      "sha256": "339dffdcae19d47ded30433ff39a56667bc976ed3e5843c1611d3015a07ae6a9"
+    },
+    {
+      "path": "applications/t2v_t2v_cam20_013_canyon/rgb.jpg",
+      "bytes": 103216,
+      "sha256": "39d31d449301df9cc865a8707a588a16acbc1b2fe8854232aaee216c5aeebd57"
+    },
+    {
+      "path": "applications/t2v_t2v_cam20_013_canyon/rgb.mp4",
+      "bytes": 1992894,
+      "sha256": "7ce2e328ce7d20331fa9b39722bd32e333954be369bca137528f212c49fceb61"
+    },
+    {
+      "path": "applications/t2v_t2v_cam20_017_car/depth.jpg",
+      "bytes": 25158,
+      "sha256": "0bda36d87f8b4b10b2f566bfd463e4aff4062a46274aea1a87d56106ce380ba4"
+    },
+    {
+      "path": "applications/t2v_t2v_cam20_017_car/depth.mp4",
+      "bytes": 98736,
+      "sha256": "c1a5183fe94a93b227fe9961c83c01ed6848bd5e54bb5b3dc280f684a27d0960"
+    },
+    {
+      "path": "applications/t2v_t2v_cam20_017_car/geometry.json.gz",
+      "bytes": 7843917,
+      "sha256": "93afdd9064cacd62b52d0a646c285f41ae5fe1ec37bb0baef3da053504e3e875"
+    },
+    {
+      "path": "applications/t2v_t2v_cam20_017_car/player.html",
+      "bytes": 24288,
+      "sha256": "dfb1ebb211745b57ed01a062f56a453e8bce308cf545e95ad4b925ce4332f037"
+    },
+    {
+      "path": "applications/t2v_t2v_cam20_017_car/rgb.jpg",
+      "bytes": 71414,
+      "sha256": "1d297a0a5be7bbc106faafde8b9395596c5c8a102077eb436369385b23e97b1c"
+    },
+    {
+      "path": "applications/t2v_t2v_cam20_017_car/rgb.mp4",
+      "bytes": 334459,
+      "sha256": "e576fda8dd4cdee03d663a5eb95abd6cbefa350f046b220b86d6bc1e5a1e8769"
+    },
+    {
+      "path": "applications/t2v_t2v_dyn20_016_fountain/depth.jpg",
+      "bytes": 25321,
+      "sha256": "4e3f975b75d77101fa05b74353509c71e9edacee8a9da8826f0a581621fa14ce"
+    },
+    {
+      "path": "applications/t2v_t2v_dyn20_016_fountain/depth.mp4",
+      "bytes": 190982,
+      "sha256": "ee005df90a890d03bb25e20519b02386c5af1836e0e003b27e7fd174783c9223"
+    },
+    {
+      "path": "applications/t2v_t2v_dyn20_016_fountain/geometry.json.gz",
+      "bytes": 8454389,
+      "sha256": "647e16b0c3da6afc93ccbd592b3cd9856ebca2cd7059864fb6424656537f0d83"
+    },
+    {
+      "path": "applications/t2v_t2v_dyn20_016_fountain/player.html",
+      "bytes": 24273,
+      "sha256": "ca8ce211fa248ec7f30ee5d096d5aa11dd4d16ad9d755168fd83c263e18ef568"
+    },
+    {
+      "path": "applications/t2v_t2v_dyn20_016_fountain/rgb.jpg",
+      "bytes": 75012,
+      "sha256": "762ebfb209225210ca698b0d15be55440cdeac0651146f1ddbd743b784c17ebb"
+    },
+    {
+      "path": "applications/t2v_t2v_dyn20_016_fountain/rgb.mp4",
+      "bytes": 1158269,
+      "sha256": "f8326579f3004a2cc605f130b4f3c55dd63cbdfd8fffdce2c80ea273fc6c252a"
+    },
+    {
+      "path": "applications/t2v_t2v_pa30_001_jogger/depth.jpg",
+      "bytes": 29503,
+      "sha256": "efef9ba6f1ae5cda709c5ea0fc51caf3867910a3b3da8b64bc41a8ef62eea061"
+    },
+    {
+      "path": "applications/t2v_t2v_pa30_001_jogger/depth.mp4",
+      "bytes": 414578,
+      "sha256": "33409570a9fcd9b3bcd71dd6691c9504e68c6afdf7c667ce481c4e09ad4f2915"
+    },
+    {
+      "path": "applications/t2v_t2v_pa30_001_jogger/geometry.json.gz",
+      "bytes": 8400567,
+      "sha256": "ebe1237be36c903357b3abc9da6c9a6bb4a72feacf36b5f64117705ea13db12e"
+    },
+    {
+      "path": "applications/t2v_t2v_pa30_001_jogger/player.html",
+      "bytes": 24283,
+      "sha256": "7ae06017776d30a73181ad90f0d088218fbbd641b314b6aa99c05d9e5ac057bd"
+    },
+    {
+      "path": "applications/t2v_t2v_pa30_001_jogger/rgb.jpg",
+      "bytes": 81461,
+      "sha256": "41818b323dce7c328a05cd5ea4e339b4ff663a4dcaee981e1ff04a64d57eb611"
+    },
+    {
+      "path": "applications/t2v_t2v_pa30_001_jogger/rgb.mp4",
+      "bytes": 1259125,
+      "sha256": "02d87b017dc09c8a39d46c3e23fd818562cde1cc323e142e4dc77d373aba8354"
+    },
+    {
+      "path": "assets/fig2_3.pdf",
+      "bytes": 277370,
+      "sha256": "af2f72a3206e09f66bb0d5890cf41266c9d8265e4e8c33202185e13619cafe7e"
+    },
+    {
+      "path": "assets/fig2_3.png",
+      "bytes": 636217,
+      "sha256": "5ff22616b6fa552da923f42f5a8958d4fb1a389f65b2e1dd6b9a530365be59c4"
+    },
+    {
+      "path": "assets/latent-bridge.pdf",
+      "bytes": 3972802,
+      "sha256": "82d51cca5f6944597b91c068d026b7cbc40fab4295c31d13ac92074d9a0efd52"
+    },
+    {
+      "path": "cases.json",
+      "bytes": 29228,
+      "sha256": "282e1e34baebaae19c4bd5b7d5b684c48aa04942c7a4c5093750dc2e42a060ac"
+    },
+    {
+      "path": "favicon.svg",
+      "bytes": 252,
+      "sha256": "5f68121ad2d5259276b25d5db00663c2677dc1cb0c332f618cd20a6d4a8a13f1"
+    },
+    {
+      "path": "index.html",
+      "bytes": 11077,
+      "sha256": "ee4123cb65662c14b8dda0495b668ff4eec4a9dbc86f53340703532c17effc70"
+    },
+    {
+      "path": "scenes/apple/aether.mp4",
+      "bytes": 2592178,
+      "sha256": "12c8a1d63c75711304007b24660de4980e7bdac7f203012eff20f0236a9c07a5"
+    },
+    {
+      "path": "scenes/apple/aether_filtered.html",
+      "bytes": 27032,
+      "sha256": "575ed8969d7d9f16d8277bb933a7e2dfc4f4ff19094aa72044fd0c1d48ac6af4"
+    },
+    {
+      "path": "scenes/apple/aether_filtered.json.gz",
+      "bytes": 1379007,
+      "sha256": "b4d23aebff630f16b27fc2321b3e96ab8b2866c31449048593abfdc4e1d538e9"
+    },
+    {
+      "path": "scenes/apple/aether_full.html",
+      "bytes": 27025,
+      "sha256": "7c3872c7f85ce068178bdf428a51e1fbadd52b8922b418c32e86abb2a5e5de35"
+    },
+    {
+      "path": "scenes/apple/aether_full.json.gz",
+      "bytes": 3414974,
+      "sha256": "ac9f616d8fae8d93facc32307b0bd2cbd8607240bbd5b0979df43a1abcb176ba"
+    },
+    {
+      "path": "scenes/apple/aether_poster.jpg",
+      "bytes": 75144,
+      "sha256": "bc0413d2624115342e94e1e00aa81f5968fe7a49dc11ef1e51f738dca0afd00d"
+    },
+    {
+      "path": "scenes/apple/comparison.html",
+      "bytes": 12787,
+      "sha256": "eff4c9741e75b49af952f6dd1e5923b249c27fa3210bf91e841e1d754fbed89e"
+    },
+    {
+      "path": "scenes/apple/fantasyworld.mp4",
+      "bytes": 4529079,
+      "sha256": "55efdc35bbf6e49dddcbaa07925384c4186b76b93df105cdc5df0543ca995494"
+    },
+    {
+      "path": "scenes/apple/fantasyworld_filtered.html",
+      "bytes": 27054,
+      "sha256": "48effd9dcbec0d27d2776c914e3e4bc59d6e9afbfcc65c534470020fe393e094"
+    },
+    {
+      "path": "scenes/apple/fantasyworld_filtered.json.gz",
+      "bytes": 2251140,
+      "sha256": "86b43a323845a68e8837a7fa736587b97a6fb0a579cb246bfb20f292ef44cfd4"
+    },
+    {
+      "path": "scenes/apple/fantasyworld_full.html",
+      "bytes": 27047,
+      "sha256": "96652d9fc8d238fe019aebbdfcbe1a0a52b2bcc54c6627743a6213d5029c7ce1"
+    },
+    {
+      "path": "scenes/apple/fantasyworld_full.json.gz",
+      "bytes": 9494233,
+      "sha256": "a40e59ccc66cc22afcfda6eeda118bec995a1d64bf2fa8d7fa7e03a147032e9e"
+    },
+    {
+      "path": "scenes/apple/fantasyworld_poster.jpg",
+      "bytes": 76534,
+      "sha256": "4d8ce501db516bffdbc14db6ce359692544a1428321b4ded8db0a5fea54806b1"
+    },
+    {
+      "path": "scenes/apple/gen3r.mp4",
+      "bytes": 861673,
+      "sha256": "c3e5b393f22066b998ac2383ef93688b9087f5f665ae3dd3167521095a2cd385"
+    },
+    {
+      "path": "scenes/apple/gen3r_filtered.html",
+      "bytes": 27029,
+      "sha256": "1a15c648fc51af1d2d58170c43bb19ed18c1c583aa7343ad284c2cf231616ecd"
+    },
+    {
+      "path": "scenes/apple/gen3r_filtered.json.gz",
+      "bytes": 2135518,
+      "sha256": "bc490952692775ec659f7728f540ac6ab4459baee4af2feb9e5b0c1678a1c5a0"
+    },
+    {
+      "path": "scenes/apple/gen3r_full.html",
+      "bytes": 27024,
+      "sha256": "c4dcfa1eee4270d0f3e1691ba62c79ac42d1726bf4e96c4a47dd11ef335ebaeb"
+    },
+    {
+      "path": "scenes/apple/gen3r_full.json.gz",
+      "bytes": 2781188,
+      "sha256": "b987cef4325874ca1d2aad74ff205dcb02ac9a9c3aee04379e6b00808960669b"
+    },
+    {
+      "path": "scenes/apple/gen3r_poster.jpg",
+      "bytes": 66464,
+      "sha256": "f1e0928c80bbe3c507e52f16fcaa619d7b49a3d303b10a4c49c681509bacdb1a"
+    },
+    {
+      "path": "scenes/apple/gt.mp4",
+      "bytes": 1343785,
+      "sha256": "abe7b310471ea829d2a87c93b97b80ed98a26af14a88b044db80dbf75c1b84d8"
+    },
+    {
+      "path": "scenes/apple/gt_poster.jpg",
+      "bytes": 73188,
+      "sha256": "7e70a0a69fe021bae10c5848230fd60861eb4d5cefd377a68f561c5c9ae16943"
+    },
+    {
+      "path": "scenes/apple/vrae.mp4",
+      "bytes": 1564713,
+      "sha256": "09d4305516864f6b5ad58c59ec0f7ce4b58503569a3a8dc76c6c507620128cbe"
+    },
+    {
+      "path": "scenes/apple/vrae_filtered.html",
+      "bytes": 27020,
+      "sha256": "8ee417e76a7a13ddb4346e1deb56372f7e5a85fece7a4318f909796fa920f685"
+    },
+    {
+      "path": "scenes/apple/vrae_filtered.json.gz",
+      "bytes": 3185698,
+      "sha256": "88262fa65a96c8ae0560e9bbec96b130b4cd2ec7995e66e66781bb6bee58db25"
+    },
+    {
+      "path": "scenes/apple/vrae_full.html",
+      "bytes": 27022,
+      "sha256": "e6c9fe1e81f7415e23e24782fd429a51d494b83c97fbf64ec41793433b00a4a9"
+    },
+    {
+      "path": "scenes/apple/vrae_full.json.gz",
+      "bytes": 8486472,
+      "sha256": "b4b4eea8d035e4add349efacbb6f6f790cd92ddd04496dd657efd35560ce2d6c"
+    },
+    {
+      "path": "scenes/apple/vrae_poster.jpg",
+      "bytes": 72390,
+      "sha256": "5058230debf6dd0fcebf2f79b88e7ef60ac59ab9877baca25a2097d20a162d35"
+    },
+    {
+      "path": "scenes/apple/wan.mp4",
+      "bytes": 833338,
+      "sha256": "2d371fa116956e63d70a97093f6ac88ca12b4c1fd7ec805e4b61edda469f609a"
+    },
+    {
+      "path": "scenes/apple/wan_filtered.html",
+      "bytes": 27020,
+      "sha256": "bdbacabe19911e9d4313c05653ae77cff466ecb33d5045fa2e2510e5447a51bc"
+    },
+    {
+      "path": "scenes/apple/wan_filtered.json.gz",
+      "bytes": 2924786,
+      "sha256": "e608fa5912aa5121637677b29ce061f3d40c823852597765f8ce659b15d02312"
+    },
+    {
+      "path": "scenes/apple/wan_full.html",
+      "bytes": 27022,
+      "sha256": "f24e8c45b995522ea812f2eb207dffb528ffb3da2d477033d2812cffdb7314ab"
+    },
+    {
+      "path": "scenes/apple/wan_full.json.gz",
+      "bytes": 8192241,
+      "sha256": "4ac39675d8d9c9a5259e77e8653b46f21dd339e4bcbfcace4c6e20d3ae13ab65"
+    },
+    {
+      "path": "scenes/apple/wan_poster.jpg",
+      "bytes": 67581,
+      "sha256": "6d87656e0cc067147a14f1088d18986516c51a4708b7e5df9bfd7aff79a3da8d"
+    },
+    {
+      "path": "scenes/ball/aether.mp4",
+      "bytes": 4086685,
+      "sha256": "b8ca045d6acd4ab7a429d0a6b82749aa37f2f6894042e5d6c72d636d6cc81620"
+    },
+    {
+      "path": "scenes/ball/aether_filtered.html",
+      "bytes": 27032,
+      "sha256": "f28bb1567d7b5e8f88f2f3065fde0c40cf1353b6cd033ad21571c8be93baed7a"
+    },
+    {
+      "path": "scenes/ball/aether_filtered.json.gz",
+      "bytes": 205550,
+      "sha256": "541a5b96ef4b6dc76d34e64f99e97d2f613f9f06a7acba04fa821aac159f8f2f"
+    },
+    {
+      "path": "scenes/ball/aether_full.html",
+      "bytes": 27025,
+      "sha256": "99f7c2937d40dafb3e6b3b9ed9583eadd6b9925a324f85d2b2a09d9f9ecb772f"
+    },
+    {
+      "path": "scenes/ball/aether_full.json.gz",
+      "bytes": 3805419,
+      "sha256": "42eab4b18f5f5c6efaec649033c1674551290dce6354a954d45634e10e463585"
+    },
+    {
+      "path": "scenes/ball/aether_poster.jpg",
+      "bytes": 101788,
+      "sha256": "502dddf118fc3c934fd7b1f05adda7fde9dd61d661ce829d6e3efe3efe203c7a"
+    },
+    {
+      "path": "scenes/ball/comparison.html",
+      "bytes": 13458,
+      "sha256": "d39b97fc479703ff696aa53864ac3cb73a5b00c04f1101bd5771b36535662586"
+    },
+    {
+      "path": "scenes/ball/fantasyworld.mp4",
+      "bytes": 4109279,
+      "sha256": "f01fe69ddb569037a137d631371b6c3354147ef18b1e0d8b9583b1b48565872b"
+    },
+    {
+      "path": "scenes/ball/fantasyworld_filtered.html",
+      "bytes": 27054,
+      "sha256": "7045cd431af479bbd575dce95590e3daf20e81271373de2bc347cc7756cb02b2"
+    },
+    {
+      "path": "scenes/ball/fantasyworld_filtered.json.gz",
+      "bytes": 398592,
+      "sha256": "a3ba9e260f58545c5fd812f71311b7822d11f459453b4b25849405ce2f4290fd"
+    },
+    {
+      "path": "scenes/ball/fantasyworld_full.html",
+      "bytes": 27047,
+      "sha256": "926430d93bd9bb5cc3182f902b67523497d698698793d928b7432f3d451f856d"
+    },
+    {
+      "path": "scenes/ball/fantasyworld_full.json.gz",
+      "bytes": 9456111,
+      "sha256": "7f5bd196b75c76b424ede4421be11834d7739c230b0a20a69b598b8e4aace887"
+    },
+    {
+      "path": "scenes/ball/fantasyworld_poster.jpg",
+      "bytes": 109507,
+      "sha256": "7e6065b46add90b4d704b526e2896df962d65493bd090b3de81253ad720e9a3a"
+    },
+    {
+      "path": "scenes/ball/gen3r.mp4",
+      "bytes": 1649169,
+      "sha256": "4dce65dc8c0f778d3ec8bf9240dc2d797d1bb575828522f00eda7d6b6ec01590"
+    },
+    {
+      "path": "scenes/ball/gen3r_filtered.html",
+      "bytes": 27023,
+      "sha256": "4c5a0d6ccaa8f6ebb91a501f1291c191685903411dbfc79647190fa476705ad0"
+    },
+    {
+      "path": "scenes/ball/gen3r_filtered.json.gz",
+      "bytes": 388356,
+      "sha256": "17160d9f204741a12d37415e0267e62bb8a163a5f3eaec3e7d806ebecc0b0b6a"
+    },
+    {
+      "path": "scenes/ball/gen3r_full.html",
+      "bytes": 27007,
+      "sha256": "478d75921480b4b9d83e0081114f5e89fcbf4339b8d8542b8927a0d9f6e6cc0e"
+    },
+    {
+      "path": "scenes/ball/gen3r_full.json.gz",
+      "bytes": 4351835,
+      "sha256": "5ca712c80e3f2112a3dc5cda9250137e05ada3a2c4f32242761d8439bb10b22d"
+    },
+    {
+      "path": "scenes/ball/gen3r_poster.jpg",
+      "bytes": 88166,
+      "sha256": "7c75ba1137ad471b63d6890ecb23470e4bee4676b5ba53d30e1ef484f4b4727d"
+    },
+    {
+      "path": "scenes/ball/gt.mp4",
+      "bytes": 2429537,
+      "sha256": "85277e35d3e8a35340fc86a1580985e29b8a8fa7af509f6bc021add990e0461c"
+    },
+    {
+      "path": "scenes/ball/gt_poster.jpg",
+      "bytes": 103254,
+      "sha256": "0be7d88e54bbf354fa4a650462febc5aca5439a35d6b17cfb64e576499c4370a"
+    },
+    {
+      "path": "scenes/ball/vrae.mp4",
+      "bytes": 2581864,
+      "sha256": "e3b20c47edfa6686f4898336932e37b358f1de4235fa147a76bd0f874e80425b"
+    },
+    {
+      "path": "scenes/ball/vrae_filtered.html",
+      "bytes": 27020,
+      "sha256": "41f6c23e4c9a8748a771fd360c60ea40d4e79315dde83c2b1aac18526a252c0c"
+    },
+    {
+      "path": "scenes/ball/vrae_filtered.json.gz",
+      "bytes": 614907,
+      "sha256": "b9c4ddd2a72290cce068c14e829ce2890faa55f03cc18f30d7011f6bf0956ed8"
+    },
+    {
+      "path": "scenes/ball/vrae_full.html",
+      "bytes": 27005,
+      "sha256": "8f13fb8d6708a94b53ccf77c81e739cb9261bf7434ade12be64000e0c0c5cd52"
+    },
+    {
+      "path": "scenes/ball/vrae_full.json.gz",
+      "bytes": 8071543,
+      "sha256": "dbae17bf02a645591cdeef584b34c49591b4aed88fdd87b4daf70844892b682c"
+    },
+    {
+      "path": "scenes/ball/vrae_poster.jpg",
+      "bytes": 102911,
+      "sha256": "e181a8475d9a8bcb017736873bab84b6bb73747d84f85f2c8fbe18c6155da277"
+    },
+    {
+      "path": "scenes/ball/wan.mp4",
+      "bytes": 1868910,
+      "sha256": "c4243a3b15adf53cbc6b7690b3c08521cfdd0907e118b2aeab6be3cc0395f29f"
+    },
+    {
+      "path": "scenes/ball/wan_filtered.html",
+      "bytes": 27020,
+      "sha256": "ff7053286b56db8599f61c377c518eff59ff446d78085575aa2978871ae84347"
+    },
+    {
+      "path": "scenes/ball/wan_filtered.json.gz",
+      "bytes": 616191,
+      "sha256": "6a7d25d2f0182e1123b8f88b8c9ef347a5a410813d5b43aaaac365eae53d7910"
+    },
+    {
+      "path": "scenes/ball/wan_full.html",
+      "bytes": 27005,
+      "sha256": "7f62608b37b267a2b933f9b704f0bec9765fe4584c7460109253fe0546e9c637"
+    },
+    {
+      "path": "scenes/ball/wan_full.json.gz",
+      "bytes": 8004330,
+      "sha256": "361c9854566354a5c83c05387b1eacd90d0636681d6a515eeac439f69b700225"
+    },
+    {
+      "path": "scenes/ball/wan_poster.jpg",
+      "bytes": 96720,
+      "sha256": "9675acf01d5eda4d87c75089d8bf535a99385f011b5abb41667595390fbe2f4a"
+    },
+    {
+      "path": "scenes/car/aether.mp4",
+      "bytes": 4223664,
+      "sha256": "8bf4a8adeb1e99a4579ee235a382df2db26a5ced0a964631d93fe9715a6b8511"
+    },
+    {
+      "path": "scenes/car/aether_depth.png",
+      "bytes": 54086,
+      "sha256": "54e9245d4e1128415576d693cfcf85f02adb5771e1d927f185297f320d4b655a"
+    },
+    {
+      "path": "scenes/car/aether_depth_contrast.png",
+      "bytes": 60362,
+      "sha256": "2601e8ca14004c852f0a346103b11c6c25708f765b336a0f50dedb13831cd046"
+    },
+    {
+      "path": "scenes/car/aether_filtered.html",
+      "bytes": 27183,
+      "sha256": "b161697d682e158a5df550168f8942273bcd80201f4111f7977815924b33a163"
+    },
+    {
+      "path": "scenes/car/aether_filtered.json.gz",
+      "bytes": 238755,
+      "sha256": "c77d7cacf8a417e18ef68c51aa8b798750b5223601a11b9c139534a41e2bc1f9"
+    },
+    {
+      "path": "scenes/car/aether_full.html",
+      "bytes": 27025,
+      "sha256": "593b03c56de425536a53e5494e5ba968a445983e1e3869a470a45e5ee3f1befe"
+    },
+    {
+      "path": "scenes/car/aether_full.json.gz",
+      "bytes": 3183253,
+      "sha256": "d47428b6b2b90e31247b033bd63d67da3fc164a71584541fa18e60a6277920ab"
+    },
+    {
+      "path": "scenes/car/aether_poster.jpg",
+      "bytes": 107437,
+      "sha256": "d21d1eaf2d5d2049ee5306bd0e69497c0de9d9b8e1bee0076b512a3bfb5ed2f2"
+    },
+    {
+      "path": "scenes/car/aether_rgb.png",
+      "bytes": 601873,
+      "sha256": "62723d0d14a3f6b36ea56f59a477584eb7adddbd3490fb48ea24481472340706"
+    },
+    {
+      "path": "scenes/car/comparison.html",
+      "bytes": 12880,
+      "sha256": "d6850dff9ccd44ca5af593ccd2c35ec3b438c662b93147774c4b976bfa23b458"
+    },
+    {
+      "path": "scenes/car/fantasyworld.mp4",
+      "bytes": 6077137,
+      "sha256": "6cc4ff2278fecc4f209800cd5457a68cdcf3e48b38b5da210cc6c5f7df85650e"
+    },
+    {
+      "path": "scenes/car/fantasyworld_depth.png",
+      "bytes": 39825,
+      "sha256": "1fd4916b5dc00bdc1b2a6df1b2b30fd131b0c9759a44b8c1bfaef47cc447d2d0"
+    },
+    {
+      "path": "scenes/car/fantasyworld_depth_contrast.png",
+      "bytes": 113742,
+      "sha256": "2aa955ea83168f26cde522f7858bd16d667dd4303c38b762ea1690760d29b67b"
+    },
+    {
+      "path": "scenes/car/fantasyworld_filtered.html",
+      "bytes": 27206,
+      "sha256": "6d654d504445cb3bede15b25c507a75b7a93bb2d2d590a57b3782e4b18bf53b7"
+    },
+    {
+      "path": "scenes/car/fantasyworld_filtered.json.gz",
+      "bytes": 361671,
+      "sha256": "fcd9f655ccb2efea27fade8fb99015685fc7c1dcbe23f370df4483821bf30fed"
+    },
+    {
+      "path": "scenes/car/fantasyworld_full.html",
+      "bytes": 27047,
+      "sha256": "57bb4e5de456c8625aaefdd7a383be8ee6631268cd336ab693f807efa878513f"
+    },
+    {
+      "path": "scenes/car/fantasyworld_full.json.gz",
+      "bytes": 7185609,
+      "sha256": "e87849e123639f6b11fd828d27ecb157569821ab9598165d1e5b91036bb7ac18"
+    },
+    {
+      "path": "scenes/car/fantasyworld_poster.jpg",
+      "bytes": 111834,
+      "sha256": "eea7427bf421824adcc89aca9c3413a5d221e52a6613e3175d2d7243494f86a6"
+    },
+    {
+      "path": "scenes/car/fantasyworld_rgb.png",
+      "bytes": 670410,
+      "sha256": "a6fc6a69e29899eb656cea730d81cd7f74a87399149cdff9522bd8ecaffae3ec"
+    },
+    {
+      "path": "scenes/car/gen3r.mp4",
+      "bytes": 1778710,
+      "sha256": "becbace536365f51e6a7239c0cffe61e217f472ffba78d0fdd2d436c54b88513"
+    },
+    {
+      "path": "scenes/car/gen3r_depth.png",
+      "bytes": 36614,
+      "sha256": "181419a805bffb79f8bb5f98cd6d11c5008f869b0719de28a8877e9b4b63520b"
+    },
+    {
+      "path": "scenes/car/gen3r_depth_contrast.png",
+      "bytes": 60538,
+      "sha256": "f889d4da0dcc8198cf6939c2170fc1c67f29eb83919e85d2a7fed64156da9bfd"
+    },
+    {
+      "path": "scenes/car/gen3r_filtered.html",
+      "bytes": 27182,
+      "sha256": "aadda75818353adcf969ebe44fb450304ef0e0da285b6a3f1382d6fe5f442e1c"
+    },
+    {
+      "path": "scenes/car/gen3r_filtered.json.gz",
+      "bytes": 318886,
+      "sha256": "e126019e0c28285e960d3623be3a7ecf9055697db31878843f7fc4df43956b51"
+    },
+    {
+      "path": "scenes/car/gen3r_full.html",
+      "bytes": 27024,
+      "sha256": "63d20946945299d368497ff31c57cffce199afd45502253ebd34992d86e92e1a"
+    },
+    {
+      "path": "scenes/car/gen3r_full.json.gz",
+      "bytes": 3450514,
+      "sha256": "76a240b12f159892857a74590d740938234fede0e2f0dd223e5ff7cd0acf0cb4"
+    },
+    {
+      "path": "scenes/car/gen3r_poster.jpg",
+      "bytes": 91625,
+      "sha256": "b387490cf87396d9c27a2407c8b6028b785c74c87da93d332cb1309ca3ec00f5"
+    },
+    {
+      "path": "scenes/car/gen3r_rgb.png",
+      "bytes": 550135,
+      "sha256": "c3a6305a4dc384b72519872c82ee6ba2846ee1c05f46261d315e5a3db5180303"
+    },
+    {
+      "path": "scenes/car/gt.mp4",
+      "bytes": 2649371,
+      "sha256": "4bc6dfb8145fcb22c2507a77b0bcd6520d41be7948c35e01819b1d1f78af2d58"
+    },
+    {
+      "path": "scenes/car/gt_poster.jpg",
+      "bytes": 107480,
+      "sha256": "0ea1d66cadd05b86e8a737a45cffa10f941e00d86327f3ae3a5e33eb3222ddc9"
+    },
+    {
+      "path": "scenes/car/vrae.mp4",
+      "bytes": 2727123,
+      "sha256": "39997e3952b2a67218b77d3333725ead6ea3d4630b012ed61d5c73cd43894b19"
+    },
+    {
+      "path": "scenes/car/vrae_depth.png",
+      "bytes": 53409,
+      "sha256": "a6067696fbaaac86ca1f3a37f93844b804b848df16e272ef9edd83e98708f82f"
+    },
+    {
+      "path": "scenes/car/vrae_depth_contrast.png",
+      "bytes": 87303,
+      "sha256": "ca8a6b28ec117e51db7995def38f95def703a5745baae9dc32f9abfb33300c0c"
+    },
+    {
+      "path": "scenes/car/vrae_filtered.html",
+      "bytes": 27171,
+      "sha256": "422c3cdaaad1d7cbefc99e444043b2c372fb1723bec22c520b0ea9ad90949c50"
+    },
+    {
+      "path": "scenes/car/vrae_filtered.json.gz",
+      "bytes": 486692,
+      "sha256": "eb6ee7e9e32915296c73eb632cbfb8ecf1a8c485e7aa6339780b4db2aab97c06"
+    },
+    {
+      "path": "scenes/car/vrae_full.html",
+      "bytes": 27022,
+      "sha256": "c7b05fbe5822cd0a6290e87fadb31bf6a3be84c6bee30263378f055715b10316"
+    },
+    {
+      "path": "scenes/car/vrae_full.json.gz",
+      "bytes": 7201577,
+      "sha256": "1be403ac1577c7e51072fbb2bbf3226dd2dce5c5c3b7a7499d818fea416bf8ec"
+    },
+    {
+      "path": "scenes/car/vrae_poster.jpg",
+      "bytes": 107107,
+      "sha256": "6a89c2b2bf7f4084c706c3e687769dd2b9596cd741a8796db50a4708babb1471"
+    },
+    {
+      "path": "scenes/car/vrae_rgb.png",
+      "bytes": 519984,
+      "sha256": "05e502772906995d957c8daeb9882fc24ec14aee54ac67b03f1771836cfbb15d"
+    },
+    {
+      "path": "scenes/car/wan.mp4",
+      "bytes": 2288236,
+      "sha256": "9681f0b9ffa6fee14cfe427f2ebe042cec7785ff1c87c8fd25ba9197c046bb96"
+    },
+    {
+      "path": "scenes/car/wan_depth.png",
+      "bytes": 60766,
+      "sha256": "72cc58050a6dfd607fee3042349c7fc393d9f970d2e09ebbc82e135eae7fe1a3"
+    },
+    {
+      "path": "scenes/car/wan_depth_contrast.png",
+      "bytes": 79312,
+      "sha256": "85e729765d8cf13453173bb1f4ac29e5a8860e78dcd88567ebfc6c03a2778770"
+    },
+    {
+      "path": "scenes/car/wan_filtered.html",
+      "bytes": 27171,
+      "sha256": "af57cf6e5a2e3b0f50b6e6478941c00a5cd1151b6359c9e885c579a2be4369ef"
+    },
+    {
+      "path": "scenes/car/wan_filtered.json.gz",
+      "bytes": 476403,
+      "sha256": "949d97ce601266539d41aef156790989742d63e8c682997cec10fe85833d1e7a"
+    },
+    {
+      "path": "scenes/car/wan_full.html",
+      "bytes": 27022,
+      "sha256": "77be77fbb724d0ee182df60f205d0bdff60e6ff50a246afb66e9ca152396b4b1"
+    },
+    {
+      "path": "scenes/car/wan_full.json.gz",
+      "bytes": 6726710,
+      "sha256": "8313156a8ec45f636361975f464a392a1b4b561d1f2fa539472eee181a4bc71b"
+    },
+    {
+      "path": "scenes/car/wan_poster.jpg",
+      "bytes": 100321,
+      "sha256": "07063aad5062feffcc6ca3b58a0d8bbc6bc99e29e657591a100bb6f0b98663af"
+    },
+    {
+      "path": "scenes/car/wan_rgb.png",
+      "bytes": 601838,
+      "sha256": "6e372efa4426d73fee77f9cc1ab8d5cb5e3ba756b675395390dc2dc55759e091"
+    },
+    {
+      "path": "scenes/home/aether.mp4",
+      "bytes": 1289323,
+      "sha256": "bf03c237662f921a5f39b4260688817943d357889e3dbd0c711facad6883b266"
+    },
+    {
+      "path": "scenes/home/aether_filtered.html",
+      "bytes": 27046,
+      "sha256": "0fb2a53c0cbd15ec81df5bdb351801b4dd12572fbfe93e7d578cad4eeb10cb85"
+    },
+    {
+      "path": "scenes/home/aether_filtered.json.gz",
+      "bytes": 4787485,
+      "sha256": "1dbf0dedefec6ecc535ca95be6a2bc6ddf155efd9769f12c9a2aa8616622c916"
+    },
+    {
+      "path": "scenes/home/aether_full.html",
+      "bytes": 27016,
+      "sha256": "a94c04ccf3e207191ccc3f30d8ec41929d8200b5f391c7734e70df72f5c28fee"
+    },
+    {
+      "path": "scenes/home/aether_full.json.gz",
+      "bytes": 5195092,
+      "sha256": "e4907fc46dcea6dcd97c0f59cf88906c1c09dd4af666b5859253a13f0c18ec0c"
+    },
+    {
+      "path": "scenes/home/aether_poster.jpg",
+      "bytes": 50562,
+      "sha256": "2f6259b48eb1ebd11534bf0f2eb999ab1c1cb139ae2a6805efba0b205f43cf29"
+    },
+    {
+      "path": "scenes/home/comparison.html",
+      "bytes": 12906,
+      "sha256": "8dcedfedf724cdc6c9442def03f39366e02baab7a8e678c35ca9ce2dddbd13d1"
+    },
+    {
+      "path": "scenes/home/fantasyworld.mp4",
+      "bytes": 3177719,
+      "sha256": "831a1390021540f56185dc30f48594b67829f562bb9003c134e580dd637aac63"
+    },
+    {
+      "path": "scenes/home/fantasyworld_filtered.html",
+      "bytes": 27068,
+      "sha256": "4d0d56d7535662be819b283f8d8021588b8ce800ee2680e5f35ad3848f11709c"
+    },
+    {
+      "path": "scenes/home/fantasyworld_filtered.json.gz",
+      "bytes": 8419294,
+      "sha256": "9076008d30be29c5cf332964fb1be74408ceb4b70a71f6fb99e19e71e6d71f6a"
+    },
+    {
+      "path": "scenes/home/fantasyworld_full.html",
+      "bytes": 27038,
+      "sha256": "46f40a851fa8f3bdc074da9e4ccd9c03c539b234f0ce0e12bfad79aa35d1e7cf"
+    },
+    {
+      "path": "scenes/home/fantasyworld_full.json.gz",
+      "bytes": 9026439,
+      "sha256": "c5d49fb286da56d5d1dfe376b422526321858ebc81f6a6764d1d4b3a14c2ba7f"
+    },
+    {
+      "path": "scenes/home/fantasyworld_poster.jpg",
+      "bytes": 60868,
+      "sha256": "89d5188f272e04d1a07a675cf8d84701c8bab3aaa0ef41d402a5385cfdfab6e3"
+    },
+    {
+      "path": "scenes/home/gen3r.mp4",
+      "bytes": 241448,
+      "sha256": "5bb22681d9a89e8c84f876f8fd0052533adbce8837cfa33f98d8dfd82ae50d6d"
+    },
+    {
+      "path": "scenes/home/gen3r_filtered.html",
+      "bytes": 27050,
+      "sha256": "d80fa28d5acf3b71417568aa6270dc6e23a7077658f028f3141dd846614951c2"
+    },
+    {
+      "path": "scenes/home/gen3r_filtered.json.gz",
+      "bytes": 4676765,
+      "sha256": "f4919ef3e1557cebc35667af72375eb78d231233c9dd3d7a7dde22753ffe1405"
+    },
+    {
+      "path": "scenes/home/gen3r_full.html",
+      "bytes": 27020,
+      "sha256": "93261f91595f78fa3110642244c1a1e3aa919edd3cfb99ff94de358a5dcda522"
+    },
+    {
+      "path": "scenes/home/gen3r_full.json.gz",
+      "bytes": 4973090,
+      "sha256": "71545b28db5f992b0bba7690cd5ac5a969539a26814bacb12ec046464897996c"
+    },
+    {
+      "path": "scenes/home/gen3r_poster.jpg",
+      "bytes": 48231,
+      "sha256": "607f2daad995d4d0e5dc89a3830e7fab2e92dbff62a36535a5c3002457ef076a"
+    },
+    {
+      "path": "scenes/home/gt.mp4",
+      "bytes": 298146,
+      "sha256": "c7f10bdee5dcea016ce4fc75b4c67fe0e38860d5886cbe6ed85f66f22ed6e440"
+    },
+    {
+      "path": "scenes/home/gt_poster.jpg",
+      "bytes": 49866,
+      "sha256": "1f8605c163233c74af649bda7bed52f289ef9cb397cb02959b71834af7ad062f"
+    },
+    {
+      "path": "scenes/home/vrae.mp4",
+      "bytes": 546961,
+      "sha256": "f8d9b4dcd13f1dd1396a1df87e8db7db802051adfa7a19e85695c3d0ac14b9f9"
+    },
+    {
+      "path": "scenes/home/vrae_filtered.html",
+      "bytes": 27051,
+      "sha256": "9552cf84d3ccf88aafcc4ac3ce12c09c5d03c9e2e8ad5ca20f22f26c403dce3a"
+    },
+    {
+      "path": "scenes/home/vrae_filtered.json.gz",
+      "bytes": 8049239,
+      "sha256": "e00c0d29c155377cc274ec626853ab7e07af3cb24796a11c843433c917553d41"
+    },
+    {
+      "path": "scenes/home/vrae_full.html",
+      "bytes": 27021,
+      "sha256": "c3d81de119148fae130e97a7894a91cc9470846174bc291e8abca07752d6825b"
+    },
+    {
+      "path": "scenes/home/vrae_full.json.gz",
+      "bytes": 8819505,
+      "sha256": "42c765ed66586d0c1470b909c6aa8844bedf3dd8fb4cb0b0c653614012b3431d"
+    },
+    {
+      "path": "scenes/home/vrae_poster.jpg",
+      "bytes": 50418,
+      "sha256": "d81fc7368d29178dfbb292e6d79a1dacceb1e8df06b391d0485db44c2d7827d1"
+    },
+    {
+      "path": "scenes/home/wan.mp4",
+      "bytes": 295135,
+      "sha256": "73a45aa1658884dbb95bac9db824164d816c6c19f39d00f76562533c4082c41b"
+    },
+    {
+      "path": "scenes/home/wan_filtered.html",
+      "bytes": 27050,
+      "sha256": "e4822713c17aa16656e41248130b4a5b5522ed9af764199ed8605f272c104cd6"
+    },
+    {
+      "path": "scenes/home/wan_filtered.json.gz",
+      "bytes": 7626660,
+      "sha256": "43a3193f48565a8ad8c3fd26fe9340fe4fd70393e133b21f8f6478aa6a6ec5c9"
+    },
+    {
+      "path": "scenes/home/wan_full.html",
+      "bytes": 27020,
+      "sha256": "8652476df616010832afcce76d8937ff651859cfd6048ce27bf5341885232776"
+    },
+    {
+      "path": "scenes/home/wan_full.json.gz",
+      "bytes": 8001178,
+      "sha256": "d88ac96246fe33b051a14cf315decc6d44e8ab647f29d08f5a9e7a0b00fa5a4b"
+    },
+    {
+      "path": "scenes/home/wan_poster.jpg",
+      "bytes": 48742,
+      "sha256": "5ae37f088b9303cb2d1fe4ef20674826bc04c2e23fda4ea27f7ca49eb8a0179f"
+    },
+    {
+      "path": "scenes/interior/aether.mp4",
+      "bytes": 2112349,
+      "sha256": "c61cb633ab49e3b6af683eb4a683aa34ad4261ba3c80c7eb27b8b03b6b9cb2bc"
+    },
+    {
+      "path": "scenes/interior/aether_filtered.html",
+      "bytes": 27046,
+      "sha256": "e4d8f1011d1c513d60e193e37526a8eeea2c653ce1646bf3ef09f37d3923ef33"
+    },
+    {
+      "path": "scenes/interior/aether_filtered.json.gz",
+      "bytes": 4441243,
+      "sha256": "563f9d10be6b8fa7e7512942d86ecdb1e70662ec97b6b444b09d726490258917"
+    },
+    {
+      "path": "scenes/interior/aether_full.html",
+      "bytes": 27016,
+      "sha256": "a3adcb4e08ef96153f84f4d37e12c65eafd5e6cde27043304fcab453f199d42d"
+    },
+    {
+      "path": "scenes/interior/aether_full.json.gz",
+      "bytes": 4823055,
+      "sha256": "618a9bcf204c5d2efc3c1a8d2b8b0a31aa4ca9acc2009b5a2fae6600a17bfe0d"
+    },
+    {
+      "path": "scenes/interior/aether_poster.jpg",
+      "bytes": 48042,
+      "sha256": "c0e2a77169e24aaea45410b1ba1fadc44e38a7d0760f43039a0dfaeaefac3e05"
+    },
+    {
+      "path": "scenes/interior/comparison.html",
+      "bytes": 12978,
+      "sha256": "6e8f83830947e5df31fbd3197823a706d85653931b73bb321fca58ca6ea23b0e"
+    },
+    {
+      "path": "scenes/interior/fantasyworld.mp4",
+      "bytes": 2373953,
+      "sha256": "e2100ea9ab9de63614ec2d484ee8ad9eab8d28f91431ed168a303d37e055f4ff"
+    },
+    {
+      "path": "scenes/interior/fantasyworld_filtered.html",
+      "bytes": 27068,
+      "sha256": "0eebc7c3dc42821d848da6683b242e65cfca8f17415fa1e06519375fd0fc1de8"
+    },
+    {
+      "path": "scenes/interior/fantasyworld_filtered.json.gz",
+      "bytes": 8829821,
+      "sha256": "4134f36decd5d3344d08fcc0e1074e9ab13ea29b6902b4bf51b6f5446c249e2d"
+    },
+    {
+      "path": "scenes/interior/fantasyworld_full.html",
+      "bytes": 27038,
+      "sha256": "9a049b6b71dba6d89f4c5f2414adb6b4d475271d0288f59f4a2e11c719341c15"
+    },
+    {
+      "path": "scenes/interior/fantasyworld_full.json.gz",
+      "bytes": 8778328,
+      "sha256": "81ac5955fe92e6e5ab69eb90373e5c541da119bf26a63bcffeb78f33de0914bd"
+    },
+    {
+      "path": "scenes/interior/fantasyworld_poster.jpg",
+      "bytes": 55821,
+      "sha256": "bd003c851a8fac292bf00f0698646777afb93ffe2d51dbdf35b293773619c841"
+    },
+    {
+      "path": "scenes/interior/gen3r.mp4",
+      "bytes": 467598,
+      "sha256": "38fea4a06eb46730cc603652d9dd9b7314cda1855b50fbf7d18dd9fd30b8ecf8"
+    },
+    {
+      "path": "scenes/interior/gen3r_filtered.html",
+      "bytes": 27050,
+      "sha256": "507fb6e149d866e591abcbf0ec0a7cf34f2789d4723bb3c51d17c3886f15647e"
+    },
+    {
+      "path": "scenes/interior/gen3r_filtered.json.gz",
+      "bytes": 5426833,
+      "sha256": "d82417b74e54d42a4efb9f2dac34ae8dde64fe09f4155f62cb27f01bed5e8e55"
+    },
+    {
+      "path": "scenes/interior/gen3r_full.html",
+      "bytes": 27020,
+      "sha256": "cde6f58fd43ca58815c6613edd359296cca6bc1eb1f72707878729dda0824ed9"
+    },
+    {
+      "path": "scenes/interior/gen3r_full.json.gz",
+      "bytes": 5402368,
+      "sha256": "59d934e3fd756ec6d030f229ab3591fd45ce179cf605b1852ba58db9bb396af2"
+    },
+    {
+      "path": "scenes/interior/gen3r_poster.jpg",
+      "bytes": 44928,
+      "sha256": "9ccaa3b1189a96bc44983951e35e75899771e18d50119e175342050d06f072e1"
+    },
+    {
+      "path": "scenes/interior/gt.mp4",
+      "bytes": 267958,
+      "sha256": "4bc23b385759c2ca21bf045089fa89d6ac8a61b3778d6ba696b5f70297b577a4"
+    },
+    {
+      "path": "scenes/interior/gt_poster.jpg",
+      "bytes": 46676,
+      "sha256": "16b67cfd75b7f9e632a3a83716755b26da32c6b349ee229a4ad855d86d9907cb"
+    },
+    {
+      "path": "scenes/interior/vrae.mp4",
+      "bytes": 872510,
+      "sha256": "ebf2d60ee85f709b2825ef375a57784ab01e9744aa5ae6d4a9335dd9232760ca"
+    },
+    {
+      "path": "scenes/interior/vrae_filtered.html",
+      "bytes": 27051,
+      "sha256": "8d937ce62fddd886b921e17f53cc7dabc9f6496b39781ff198d467f5b15902d6"
+    },
+    {
+      "path": "scenes/interior/vrae_filtered.json.gz",
+      "bytes": 9456429,
+      "sha256": "22df529e19860ed1c19d138fe9ed806ed6cabba340de1cc1dd4c72706ae9b2b4"
+    },
+    {
+      "path": "scenes/interior/vrae_full.html",
+      "bytes": 27021,
+      "sha256": "ba5066d487fcd768183c167b60dbf7579e4fe2f25f40880d59320db23b3b5142"
+    },
+    {
+      "path": "scenes/interior/vrae_full.json.gz",
+      "bytes": 9499655,
+      "sha256": "f120d6517f6e1faea6a2bf4604f60e412ed0e79525e8c99dccbd829febc3af77"
+    },
+    {
+      "path": "scenes/interior/vrae_poster.jpg",
+      "bytes": 46979,
+      "sha256": "e407f178279468829e7661a850a5c0c3d85532a5e0afeedc6f9991d87947ca1f"
+    },
+    {
+      "path": "scenes/interior/wan.mp4",
+      "bytes": 456015,
+      "sha256": "445dc36b3548e1bf6c8c0e5ee970c3767bff01bc3b80d40187337d0dbde26cbe"
+    },
+    {
+      "path": "scenes/interior/wan_filtered.html",
+      "bytes": 27050,
+      "sha256": "b508c8408430f49dcc72ccacbfb5134ac44c2a0d1726a8ba6335bfdc826a1bf5"
+    },
+    {
+      "path": "scenes/interior/wan_filtered.json.gz",
+      "bytes": 8970865,
+      "sha256": "9838261bbf2c7e789403222b03651c01830fbb7850379982db052bd508596c62"
+    },
+    {
+      "path": "scenes/interior/wan_full.html",
+      "bytes": 27020,
+      "sha256": "ee096e066ef939685ae2f0dc5a437f8ef2dbfb809d93ed0e4f3bf0f1855d991d"
+    },
+    {
+      "path": "scenes/interior/wan_full.json.gz",
+      "bytes": 8911989,
+      "sha256": "449be854babb1ac71b47d11247851f67a294046165f3e40a208750007960c47e"
+    },
+    {
+      "path": "scenes/interior/wan_poster.jpg",
+      "bytes": 46851,
+      "sha256": "a4c4cb1e559bc01247ff7a4843ec3cc7a113665693a71db68a95e6a2e1ff2c90"
+    },
+    {
+      "path": "style.css",
+      "bytes": 27091,
+      "sha256": "b76861766a4422ec28fa340c5512866bc53c6ce40597b180cedffaa7c0252fc0"
+    }
+  ]
+}
