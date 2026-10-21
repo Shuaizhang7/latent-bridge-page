@@ -4,7 +4,8 @@ Standalone static website for **Latent Bridge: From Video Latents to 3D Geometry
 
 This repository contains the project page and its visualization assets, not the
 training implementation or model checkpoints. It needs no inference server or GPU.
-The paper and code buttons remain disabled until their real URLs are available.
+The Paper button links to [arXiv:2610.28521](https://arxiv.org/pdf/2610.28521),
+and the Code button links to [hustvl/Latent-Bridge](https://github.com/hustvl/Latent-Bridge).
 
 ## Repository layout
 
@@ -85,10 +86,9 @@ git commit -m "Update project page"
 git push
 ```
 
-To enable **Paper** or **Code**, replace its disabled placeholder button in
-`docs/index.html` with an anchor using the actual arXiv or source-code repository
-URL. The Code button should point to the implementation repository, not this page
-repository. Do not invent an arXiv identifier or link to an unrelated repository.
+To update **Paper** or **Code**, edit their links in `docs/index.html`.
+Keep the navigation paper link and BibTeX metadata in sync with the Paper button.
+The Code button points to the implementation repository.
 
 ## Browser regression tests (optional)
 

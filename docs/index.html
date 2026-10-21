@@ -13,15 +13,14 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="masthead"><a class="brand" href="#" aria-label="Latent Bridge home"><svg viewBox="0 0 38 30" aria-hidden="true"><path d="M2 25V8h8v17M28 25V8h8v17M10 15C15 4 23 4 28 15M10 22C15 11 23 11 28 22"/></svg><span>Latent Bridge</span></a><nav aria-label="Main navigation"><a href="#method">Method</a><a href="#explore">Explore</a><a href="#results">Results</a><a role="link" aria-disabled="true" title="arXiv link coming soon">Read the paper <span>Coming soon</span></a></nav></header>
+<header class="masthead"><a class="brand" href="#" aria-label="Latent Bridge home"><svg viewBox="0 0 38 30" aria-hidden="true"><path d="M2 25V8h8v17M28 25V8h8v17M10 15C15 4 23 4 28 15M10 22C15 11 23 11 28 22"/></svg><span>Latent Bridge</span></a><nav aria-label="Main navigation"><a href="#method">Method</a><a href="#explore">Explore</a><a href="#results">Results</a><a href="https://arxiv.org/pdf/2610.28521" target="_blank" rel="noopener">Read the paper</a></nav></header>
 <main id="main">
 <section class="hero section-width">
   <h1>Latent Bridge<span>From Video Latents to 3D Geometry<br>via Feature Alignment</span></h1>
   <div class="authors">Shuai Zhang<sup>1</sup>, Zhanpeng Ouyang<sup>2,‡</sup>, Zhengqing Chen<sup>2</sup>, Ruohong Mei<sup>2</sup>, Shaoyu Chen<sup>2</sup>,<br class="desktop"> Weiqiang Ren<sup>2</sup>, Hui Sun<sup>2</sup>, Qian Zhang<sup>2</sup>, Wenyu Liu<sup>1</sup>, Xinggang Wang<sup>1,†</sup></div>
   <p class="affiliations"><span><sup>1</sup> Huazhong University of Science and Technology</span><span><sup>2</sup> Horizon Robotics</span></p>
   <p class="author-notes">‡ Project leader &nbsp; · &nbsp; † Corresponding author</p>
-  <!-- Replace the Paper placeholder when the arXiv URL is available. -->
-  <div class="actions"><button class="button primary publication-pending" disabled title="arXiv link coming soon">Paper <span>Coming soon</span></button><a class="button" href="https://github.com/hustvl/Latent-Bridge" target="_blank" rel="noopener">Code</a></div>
+  <div class="actions"><a class="button primary" href="https://arxiv.org/pdf/2610.28521" target="_blank" rel="noopener">Paper</a><a class="button" href="https://github.com/hustvl/Latent-Bridge" target="_blank" rel="noopener">Code</a></div>
   <figure class="teaser paper-overview" id="method">
     <div class="teaser-top"><h2 class="section-title">Method Overview</h2><span>Alignment training · Generative inference</span></div>
     <a class="paper-overview-image" href="assets/fig2_3.pdf" target="_blank" rel="noopener" aria-label="Open the original architecture PDF"><img src="assets/fig2_3.png" width="2400" height="1412" fetchpriority="high" alt="Paper Figure 2. Alignment training with frozen video encoder and DINOv3 teacher; generative inference through Latent Bridge into VGGT-Omega; encoder-specific Wan2.1 and V-RAE Bridge architectures."></a>
@@ -57,11 +56,14 @@
 <div class="efficiency"><div><span class="section-kicker">THE MATCHED-LATENT COMPARISON</span><h3>Less decoding.<br>More direct.</h3><p>Same generated latents. Same frozen Ω aggregator and heads. Only the route into the geometry model changes.</p><a href="assets/latent-bridge.pdf#page=8" target="_blank" rel="noopener" class="text-link">Table 3 in the paper ↗</a></div><div class="timing-card"><div class="timing-title">Wan2.1 <b>1.61×</b></div><div class="timing-row"><span>RGB route</span><div style="--width:100%" class="bar baseline"></div><b>7.92 s</b></div><div class="timing-row"><span>Bridge</span><div style="--width:62.12%" class="bar"></div><b>4.92 s</b></div></div><div class="timing-card"><div class="timing-title">V-RAE <b>1.24×</b></div><div class="timing-row"><span>RGB route</span><div style="--width:100%" class="bar baseline"></div><b>5.76 s</b></div><div class="timing-row"><span>Bridge</span><div style="--width:80.55%" class="bar"></div><b>4.64 s</b></div></div></div>
 </div></section>
 <section class="section-width citation-section" id="resources" aria-label="Citation">
-<div class="citation"><div><h3>Citation</h3><span>Preprint metadata; no arXiv identifier has been supplied.</span></div><button id="copyCitation" class="button compact">Copy BibTeX</button><pre id="bibtex">@misc{zhang2026latentbridge,
+<div class="citation"><div><h3>Citation</h3><span>arXiv:2610.28521 · 2026</span></div><button id="copyCitation" class="button compact">Copy BibTeX</button><pre id="bibtex">@misc{zhang2026latentbridge,
   title={Latent Bridge: From Video Latents to 3D Geometry via Feature Alignment},
   author={Shuai Zhang and Zhanpeng Ouyang and Zhengqing Chen and Ruohong Mei and Shaoyu Chen and Weiqiang Ren and Hui Sun and Qian Zhang and Wenyu Liu and Xinggang Wang},
   year={2026},
-  note={Preprint}
+  eprint={2610.28521},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2610.28521}
 }</pre><span id="copyStatus" role="status"></span></div>
 </section>
 </main><footer class="section-width"><a class="brand" href="#">Latent Bridge<span class="footer-symbol">↗</span></a><p>Huazhong University of Science and Technology · Horizon Robotics</p><span>Research project · 2026</span></footer>
